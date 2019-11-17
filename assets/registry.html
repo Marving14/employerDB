@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>
-      This is my first html page
+      EmployerDB
     </title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="./css/registry.css"/>
@@ -15,10 +15,10 @@
     </header>
     <nav>
       <ul id="menu">
-        <li id="login"> 
+        <li id="login" class="selected"> 
           Login 
         </li>
-        <li id="register" class="selected"> 
+        <li id="register"> 
           Register 
         </li>
         <li id="copyright"> 
@@ -27,7 +27,7 @@
       </ul>
     </nav>
     <main>
-      <section id="registerSection" class="currentSelected">
+      <section id="registerSection" hidden>
         <form>
           <fieldset>
             <legend>
@@ -60,14 +60,14 @@
           </fieldset>
         </form>
       </section>
-      <section id="loginSection" hidden>
+      <section id="loginSection" class="currentSelected">
         <form>
           <fieldset>
             <legend>
               User login 
             </legend>
             <p>
-              <label for="email"> Email </label>
+              <label for="email_reg"> Email </label>
             </p>
             <input class="formElement" id="email_reg" type="text"/>
             <p>
