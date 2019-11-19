@@ -10,6 +10,7 @@ let userSchema = mongoose.Schema({
 	password: {type: String}
 });
 
+
 let Register = mongoose.model( 'Register', userSchema );
 let LoginEmployer = {
 	
