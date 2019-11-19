@@ -53,8 +53,8 @@ function watchForm(){
     }
 
 
-    if(passw.value !=pass.value ){
-      passwordConfErrorMessage =" Passwords Do not match"; 
+    if(passw.value != pass.value ){
+      alert(" Passwords Do not match");
     } else{
       // CASE WHEN everything is ok
 
