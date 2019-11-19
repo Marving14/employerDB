@@ -115,7 +115,33 @@ function watchForm(){
       loginErrorMessage.textContent = "Faltan datos  ";
     }
     else{
-      loginErrorMessage.hidden = true;
+
+       let postD = $(".formElementL");
+      let body = {}; 
+      body.email = postD[0].value;
+      body.password_reg = postD[1].value; 
+      event.preventDefault();
+
+      $.ajax({
+        type: 'GET',
+        url: '/employerDB/login-users/' + $('#password_reg').val()
+      }).done(function(data){
+        console.log(data);
+        // Mail ya existe en BD
+        if(data.password === body.password_reg){
+
+           parent.open("./home.html", "_self");   
+        }else{
+          alert("Wrong password");
+        }
+
+      }).fail(function(data){
+        // Mail es nuevo y se registrara en BD
+         
+          alert("User not found");      
+      })
+
+      
     }
     
 
