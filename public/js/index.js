@@ -134,10 +134,6 @@ function watchForm(){
       selectedSection.hidden = false;
       selectedSection.className = "currentSelected";
 
-
-
-
-
     });
   }
 
