@@ -54,7 +54,7 @@ function watchForm(){
 
 
     if(passw.value != pass.value ){
-      alert(" Passwords Do not match");
+      alert(" Passwords do not match");
     } else{
       // CASE WHEN everything is ok
 
@@ -88,7 +88,7 @@ function watchForm(){
           });
 
           alert("registrado exitosamente"); 
-          parent.open("./home.html");        
+          parent.open("./home.html", "_self");        
       })
 
 
@@ -96,21 +96,33 @@ function watchForm(){
     }
 
 
+	
+  });    //////////// END REGISTER
 
+        //////  START LOGIN SECTION 
 
-      ///////// AJAX PART //////////
+ submitButtonL.addEventListener("click", ( event ) =>{
+    event.preventDefault();
+
+      // Validate the email input LOGIN
+    let email_reg = document.getElementById( "email_reg" );
    
+    let password_reg = document.getElementById( "password_reg" );
+    let loginErrorMessage = document.getElementById( "loginErrorMessage" );
 
 
-
+    if ( email_reg.value === "" || password_reg.value==="" ){
+      loginErrorMessage.textContent = "Faltan datos  ";
+    }
+    else{
+      loginErrorMessage.hidden = true;
+    }
     
 
 
+  }); 
+         ///////////////////////
 
-      // END AJAX 
-
-	
-  });
 
   // Functionality for the navigation menu
   let menuItems = document.getElementsByTagName( "li" );
@@ -140,23 +152,7 @@ function watchForm(){
   }
 
   //////////////////////////////////////
-  submitButtonL.addEventListener("click", ( event ) =>{
-    event.preventDefault();
-
-      // Validate the email input LOGIN
-    let email_reg = document.getElementById( "email_reg" );
-    let loginErrorMessage = document.getElementById( "loginErrorMessage" );
-
-    if ( email_reg.value === "" ){
-      loginErrorMessage.hidden = false;
-    }
-    else{
-      loginErrorMessage.hidden = true;
-    }
-    
-
-
-  }); 
+ 
 
 }
 
