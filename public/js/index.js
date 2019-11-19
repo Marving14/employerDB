@@ -65,7 +65,7 @@ function watchForm(){
     body.name = postD[0].value;
     body.email = postD[1].value;
     body.password = postD[2].value; 
-    e.preventDefault();
+    event.preventDefault();
 
     $.ajax({
       type: 'POST',
