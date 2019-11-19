@@ -183,7 +183,6 @@ app.put('/api/db-project-posts/:id', jsonParser, (req, res, next)=>{
 */
 
 let server;
-
 function runServer(port, databaseUrl){
 	return new Promise( (resolve, reject ) => {
     	mongoose.connect(databaseUrl, response => {
