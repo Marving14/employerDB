@@ -54,31 +54,52 @@ function watchForm(){
     if(passw !=pass ){
       passwordConfErrorMessage =" Passwords Do not match"; 
     } else{
-      passwordConfErrorMessage=""; 
+      // CASE WHEN everything is ok
+
+      let postD = $(".formElement");
+      let body = {}; 
+      body.name = postD[0].value;
+      body.email = postD[1].value;
+      body.password = postD[2].value; 
+      event.preventDefault();
+
+
+      $.ajax({
+        type: 'GET',
+        url: '/employerDB/login-users/' +$('#email').val()
+      }).done(function(data){
+        console.log(data);
+        // Mail ya existe en BD
+        alert("Mail ya existe, escriba uno diferente o inicie sesion");
+      }).fail(function(data){
+        // Mail es nuevo y se registrara en BD
+          $.ajax({
+            type: 'POST',
+            url: '/employerDB/register-users',
+            contentType: "application/json",
+            data: JSON.stringify(body)
+          }).done(function(data){
+            console.log(data);
+
+          }).fail(function(err){
+            alert(err.responseText); 
+          });
+
+          alert("registrado exitosamente"); 
+          parent.open("./home.html");        
+      })
+
+
+
     }
 
 
 
+
       ///////// AJAX PART //////////
-    let postD = $(".formElement");
-    let body = {}; 
-    body.name = postD[0].value;
-    body.email = postD[1].value;
-    body.password = postD[2].value; 
-    event.preventDefault();
+   
 
-    $.ajax({
-      type: 'POST',
-      url: '/employerDB/register-users',
-      contentType: "application/json",
-      data: JSON.stringify(body)
-    }).done(function(data){
-      console.log(data);
 
-    }).fail(function(err){
-      alert(err.responseText); 
-    });
-    
 
     
 

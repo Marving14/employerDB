@@ -12,6 +12,7 @@ let userSchema = mongoose.Schema({
 
 let Register = mongoose.model( 'Register', userSchema );
 let LoginEmployer = {
+	
 	getbyMail : function(userMail){
 		return Register.find({email: userMail})
 				.then(users => {

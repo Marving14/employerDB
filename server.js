@@ -61,10 +61,8 @@ let postss = [
 
 //  LOGIN SECTION 
 
-app.get('/employerDB/login-users',(req, res, next) => {
-    if(req.body.email && req.body.password)
-        return res.status(406).json("Missing data");
-    LoginEmployer.getbyMail(req.query.email).then(users => {
+app.get('/employerDB/login-users/:email',(req, res, next) => {
+    LoginEmployer.getbyMail(req.params.email).then(users => {
         if(users.length == 0)
             return res.status(404).json("User not found");
         return res.status(200).json(users);
