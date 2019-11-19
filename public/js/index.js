@@ -128,7 +128,7 @@ function watchForm(){
       }).done(function(data){
         console.log(data);
         // Mail ya existe en BD
-        if(data.password === body.password_reg){
+        if(data.password == body.password_reg){
 
            parent.open("./home.html", "_self");   
         }else{
