@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>
-      This is my first html page
+      EmployerDB Login
     </title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="./css/index.css"/>
@@ -10,153 +10,29 @@
   <body>
     <header>
       <h1> 
-        Registry Form 
+        Employer Data Base
       </h1>
     </header>
     <nav>
       <ul id="menu">
-        <li id="home"> 
-          Home 
+        <li id="login" class="selected"> 
+          Login 
         </li>
-        <li id="createPerson"> 
-          Create Person
-        </li>
-        <li id="createProject"> 
-          Create Project
-        </li>
-        <li id="search" class="selected"> 
-          Search 
-        </li>
-        <li id="update"> 
-          Update 
+        <li id="register"> 
+          Register 
         </li>
         <li id="copyright"> 
-          Copyright 
+          Nada aun... Esperalo!  
         </li>
       </ul>
     </nav>
     <main>
-
-
-
-      <section id="createPersonSection" class="currentSelected">
+      <section id="registerSection" hidden>
         <form>
-          <fieldset>
-            <legend>
-              New Employee Registry
-            </legend>
-            <p>
-              <label for="fullName"> Complete name </label>
-            </p>
-            <input class="formElement" id="fullName" type="text" /> 
-            <span class="errorMessage" id="fullNameErrorMessage">  </span>
-
-            <p>
-              <label for="fullName"> Age </label>
-            </p>
-            <input class="formElement" id="age" type="text" /> 
-            <span class="errorMessage" id="ageErrorMessage">  </span>
-
-
-             <p>
-              <label for="fullName"> Birthday </label>
-            </p>
-            <input class="formElement" id="birthday" type="text" /> 
-            <span class="errorMessage" id="birthdayErrorMessage">  </span>
-
-
-             <p>
-              <label for="fullName"> Degree </label>
-            </p>
-            <input class="formElement" id="degree" type="text" /> 
-            <span class="errorMessage" id="degreeErrorMessage">  </span>
-
-
-             <p>
-              <label for="fullName"> Age </label>
-            </p>
-            <input class="formElement" id="age" type="text" /> 
-            <span class="errorMessage" id="ageErrorMessage">  </span>
-
-             <p>
-              <label for="fullName"> Skills </label>
-            </p>
-            <textarea name="textarea" rows="10" cols="40"></textarea>
-            <span class="errorMessage" id="ageErrorMessage">  </span>
-
-
-            <p></p>
-            <input class="buttonHover" id="cancelButton" type="submit" value="Cancel"/>
-            <input class="buttonHover" id="submitButton" type="submit" value="Submit"/>
-          </fieldset>
-        </form>
-      </section>
-      <section id="createProjectSection" hidden>
-            <form>
-          <fieldset>
-            <legend>
-              New Employee Registry
-            </legend>
-            <p>
-              <label for="fullName"> Complete name </label>
-            </p>
-            <input class="formElement" id="fullName" type="text" /> 
-            <span class="errorMessage" id="fullNameErrorMessage">  </span>
-
-            <p>
-              <label for="fullName"> Age </label>
-            </p>
-            <input class="formElement" id="age" type="text" /> 
-            <span class="errorMessage" id="ageErrorMessage">  </span>
-
-
-             <p>
-              <label for="fullName"> Birthday </label>
-            </p>
-            <input class="formElement" id="birthday" type="text" /> 
-            <span class="errorMessage" id="birthdayErrorMessage">  </span>
-
-
-             <p>
-              <label for="fullName"> Degree </label>
-            </p>
-            <input class="formElement" id="degree" type="text" /> 
-            <span class="errorMessage" id="degreeErrorMessage">  </span>
-
-
-             <p>
-              <label for="fullName"> Age </label>
-            </p>
-            <input class="formElement" id="age" type="text" /> 
-            <span class="errorMessage" id="ageErrorMessage">  </span>
-
-             <p>
-              <label for="fullName"> Skills </label>
-            </p>
-            <textarea name="textarea" rows="10" cols="40"></textarea>
-            <span class="errorMessage" id="ageErrorMessage">  </span>
-
-
-            <p></p>
-            <input class="buttonHover" id="cancelButton" type="submit" value="Cancel"/>
-            <input class="buttonHover" id="submitButton" type="submit" value="Submit"/>
-          </fieldset>
-        </form>
-        
-      </section>
-      <section id="homeSection" hidden>
-        This is the home
-
-        <div>
-          <div id="person">
-            <form>
           <fieldset>
             <legend>
               New Account Registry
             </legend>
-            <span class="info"> 
-              Your information is safe with us 
-            </span>
             <p>
               <label for="fullName"> Complete name </label>
             </p>
@@ -183,18 +59,30 @@
             <input class="buttonHover" id="submitButton" type="submit" value="Submit"/>
           </fieldset>
         </form>
-          </div>
-          <div id="project">
-            
-          </div>
-        </div>
       </section>
-      <section id="searchSection" hidden>
-        This is the about
+      <section id="loginSection" class="currentSelected">
+        <form>
+          <fieldset>
+            <legend>
+              User login 
+            </legend>
+            <p>
+              <label for="email_reg"> Email </label>
+            </p>
+            <input class="formElementL" id="email_reg" type="text"/>
+            <p>
+              <label for="password"> Password </label>
+            </p>
+            <input class="formElementL" id="password_reg" type="password"/>
+            <span class="errorMessage" id="loginErrorMessage"></span>
+            <p></p>
+            <input class="buttonHover" id="submitButtonL" type="submit" value="Submit"/>
+          </fieldset>
       </section>
-      <section id="updateSection" hidden>
-        This is the contact
+  <!--    <section id="registerSection" hidden>
+        This is the register
       </section>
+    -->
       <section id="copyrightSection" hidden>
         This is the copyright
       </section>

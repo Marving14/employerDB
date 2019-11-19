@@ -1,6 +1,8 @@
-
 function watchForm(){
   let submitButton = document.getElementById( "submitButton" );
+
+  let submitButtonL = document.getElementById("submitButtonL");
+
 
   submitButton.addEventListener("click", ( event ) =>{
     event.preventDefault();
@@ -26,8 +28,65 @@ function watchForm(){
     else{
       emailErrorMessage.hidden = true;
     }
+	
+
+	// Validate the password input
+    let pass = document.getElementById( "password" );
+    let passwordErrorMessage = document.getElementById( "passwordErrorMessage" );
+
+    if ( pass.value === "" ){
+		passwordErrorMessage.textContent = "Please provide your password";
+    }
+    else{
+      passwordErrorMessage.textContent = "";
+    }
+	
+	// Validate the password CONFIRM
+    let passw = document.getElementById( "passwordConfirmation" );
+    let passwordConfErrorMessage = document.getElementById( "passwordConfErrorMessage" );
+
+    if ( passw.value === ""){
+		passwordConfErrorMessage.textContent = "Please provide your password";
+    }
+    else{
+      passwordConfErrorMessage.textContent = "";
+    }
+    if(passw !=pass ){
+      passwordConfErrorMessage =" Passwords Do not match"; 
+    } else{
+      passwordConfErrorMessage=""; 
+    }
+
+
+
+      ///////// AJAX PART //////////
+    let postD = $(".formElement");
+    let body = {}; 
+    body.name = postD[0].value;
+    body.email = postD[1].value;
+    body.password = postD[2].value; 
+    e.preventDefault();
+
+    $.ajax({
+      type: 'POST',
+      url: '/employerDB/register-users',
+      contentType: "application/json",
+      data: JSON.stringify(body)
+    }).done(function(data){
+      console.log(data);
+
+    }).fail(function(err){
+      alert(err.responseText); 
+    });
     
 
+    
+
+
+
+      // END AJAX 
+
+	
   });
 
   // Functionality for the navigation menu
@@ -55,8 +114,32 @@ function watchForm(){
       selectedSection.className = "currentSelected";
 
 
+
+
+
     });
   }
+
+  //////////////////////////////////////
+  submitButtonL.addEventListener("click", ( event ) =>{
+    event.preventDefault();
+
+      // Validate the email input LOGIN
+    let email_reg = document.getElementById( "email_reg" );
+    let loginErrorMessage = document.getElementById( "loginErrorMessage" );
+
+    if ( email_reg.value === "" ){
+      loginErrorMessage.hidden = false;
+    }
+    else{
+      loginErrorMessage.hidden = true;
+    }
+    
+
+
+  }); 
+
 }
+
 
 watchForm();

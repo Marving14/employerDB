@@ -24,8 +24,8 @@ fieldset{
 }
 
 fieldset > span.info{
-  background: url('./../img/infoicon.png') no-repeat #CCE9F8;;
-  border: 1px solid #6278B0;
+	background: url('./../img/infoicon.png') no-repeat #CCE9F8;;
+	border: 1px solid #6278B0;
     color: #42579C;
     padding: 20px 40px;
     display : block;
@@ -39,32 +39,44 @@ fieldset > span.info{
     padding: 5px 10px;
     width: 300px;
 }
+.formElementL{
+    font-size: 14px;
+    padding: 5px 10px;
+    width: 300px;
+}
+
 
 select{
     font-size: 14px; 
     width: 250px;  
 }
+form{
+    text-align: center;
+}
 
 .buttonHover{
-  font-size: 16px;
-  padding: 10px 20px;
-  text-align : center;
-  color: white;
-  margin-left: 20px;
-  border-radius: 7px;
+	font-size: 16px;
+	padding: 10px 20px;
+	text-align : center;
+	color: white;
+	margin-left: 20px;
+	border-radius: 7px;
 }
 
 #submitButton{
+	background-color: #56C56F;
+}
+#submitButtonL{
   background-color: #56C56F;
 }
 
 .buttonHover:hover {
-  cursor: pointer;
-  opacity: 0.8;
+	cursor: pointer;
+	opacity: 0.8;
 }
 
 #cancelButton{
-  background-color: #D9534F;
+	background-color: #D9534F;
 }
 
 #menu{
