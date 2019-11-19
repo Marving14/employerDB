@@ -12,6 +12,8 @@ let postSchema = mongoose.Schema({
 	publishDate: {type : Date}
 });
 
+
+
 let Post = mongoose.model( 'Post', postSchema );
 
 let PostProyect = {

@@ -1,0 +1,10 @@
+DATOS DE ACCESO
+
+HEROKU
+mail: bryan_marving@hotmail.com
+pass: employerDB1
+
+MONGODB 
+mail: bryan_marving@hotmail.com
+pass: employerDB1
+

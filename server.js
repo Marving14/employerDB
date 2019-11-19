@@ -4,6 +4,7 @@ let bodyParser = require('body-parser');
 let moment = require('moment');
 const uuidv4 = require('uuid/v4');
 let { PostProyect } = require('./db-post-proyect-model');
+let {LoginEmployer } = require('./db-login-register-model.js'); 
 // PostList  -> turned PostProyect
 let { DATABASE_URL, PORT } = require('./config');
 let mongoose = require('mongoose');
@@ -14,6 +15,16 @@ mongoose.Promise = global.Promise;
 
 app.use(express.static("public"));
 app.use( morgan( "dev" ) );
+
+let registered =[
+    {
+        id: uuidv4(),
+        name: "Marving",
+        email: "bryan_marving@hotmail.com",
+        password: "admin"
+    }
+
+];
 
 let postss = [
 	{
@@ -48,8 +59,14 @@ let postss = [
 	}
 ];
 
-app.get('/api/db-projects',(req, res, next) => {
-    PostProyect.get().then(posts => {
+//  LOGIN SECTION 
+
+app.get('/employerDB/user-login',(req, res, next) => {
+    if(req.body.email && req.body.password)
+        return res.status(406).json("Missing data");
+    LoginEmployer.getbyMail(req.query.email).then(posts => {
+        if(posts.length == 0)
+            return res.status(404).json("User not found");
         return res.status(200).json(posts);
     }).catch( error => {
         res.statusMessage = "Something went wrong with the DB. Try again later.";
@@ -59,6 +76,39 @@ app.get('/api/db-projects',(req, res, next) => {
         })
     });
 });
+
+
+//////////// END LOGIN /////////////
+
+// REGISTER SECTION //////////
+app.post('/employerDB/user-register', jsonParser, (req, res, next)=>{
+    if(req.body.name && req.body.email && req.body.password && req.body.confirmPass){
+        let nUser = req.body;
+        nUser.id = uuidv4();
+        LoginEmployer.post(nUser).then(post => {
+            return res.status(201).json({
+                message : "User registered",
+                status : 201,
+                post : post
+            });
+        }).catch( error => {
+            res.statusMessage = "Something went wrong with the DB. Try again later.";
+            return res.status( 500 ).json({
+                status : 500,
+                message : "Something went wrong with the DB. Try again later."
+            })
+        });
+    }
+    else{
+        return res.status(406).json("Missing variables in body");
+    }
+});
+
+
+
+
+//////////// END REGISTER /////
+
 
 app.get('/api/db-project',(req, res, next) => {
     if(req.query.author == undefined)
