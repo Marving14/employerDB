@@ -45,7 +45,7 @@ function watchForm(){
     let passw = document.getElementById( "passwordConfirmation" );
     let passwordConfErrorMessage = document.getElementById( "passwordConfErrorMessage" );
 
-    if ( passw.value === "" || ){
+    if ( passw.value === "" ){
 		passwordConfErrorMessage.textContent = "Please provide your password";
     }
     else{
