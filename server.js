@@ -61,13 +61,13 @@ let postss = [
 
 //  LOGIN SECTION 
 
-app.get('/employerDB/user-login',(req, res, next) => {
+app.get('/employerDB/login-users',(req, res, next) => {
     if(req.body.email && req.body.password)
         return res.status(406).json("Missing data");
-    LoginEmployer.getbyMail(req.query.email).then(posts => {
-        if(posts.length == 0)
+    LoginEmployer.getbyMail(req.query.email).then(users => {
+        if(users.length == 0)
             return res.status(404).json("User not found");
-        return res.status(200).json(posts);
+        return res.status(200).json(users);
     }).catch( error => {
         res.statusMessage = "Something went wrong with the DB. Try again later.";
         return res.status( 500 ).json({
@@ -81,8 +81,8 @@ app.get('/employerDB/user-login',(req, res, next) => {
 //////////// END LOGIN /////////////
 
 // REGISTER SECTION //////////
-app.post('/employerDB/user-register', jsonParser, (req, res, next)=>{
-    if(req.body.name && req.body.email && req.body.password && req.body.confirmPass){
+app.post('/employerDB/register-users', jsonParser, (req, res, next)=>{
+    if(req.body.name && req.body.email && req.body.password){
         let nUser = req.body;
         nUser.id = uuidv4();
         LoginEmployer.post(nUser).then(post => {

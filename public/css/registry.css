@@ -39,6 +39,12 @@ fieldset > span.info{
     padding: 5px 10px;
     width: 300px;
 }
+.formElementL{
+    font-size: 14px;
+    padding: 5px 10px;
+    width: 300px;
+}
+
 
 select{
     font-size: 14px; 
@@ -59,6 +65,9 @@ form{
 
 #submitButton{
 	background-color: #56C56F;
+}
+#submitButtonL{
+  background-color: #56C56F;
 }
 
 .buttonHover:hover {
