@@ -109,7 +109,7 @@ app.post('/employerDB/register-users', jsonParser, (req, res, next)=>{
 
 //////////// END REGISTER /////
 
-
+/*
 app.get('/api/db-project',(req, res, next) => {
     if(req.query.author == undefined)
         return res.status(406).json("Missing author");
@@ -182,6 +182,7 @@ app.put('/api/db-project-posts/:id', jsonParser, (req, res, next)=>{
         return res.status(406).json("Missing id in body");
     }
 });
+*/
 
 let server;
 

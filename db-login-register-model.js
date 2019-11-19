@@ -30,7 +30,7 @@ let LoginEmployer = {
 					throw Error(err);
 				}); 
 	}
-
+/*
 	del : function( iD ){
 		return Post.deleteOne( {id: iD} )
 				.then( mess => {
@@ -49,6 +49,7 @@ let LoginEmployer = {
 					throw Error(error);
 				});
 	}
+	*/
 };
 
 module.exports = {LoginEmployer }; 
