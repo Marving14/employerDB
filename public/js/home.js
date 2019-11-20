@@ -6,13 +6,13 @@ function watchForm(){
     
     // Validate the fullNamePerson input
     let fullNamePerson = document.getElementById( "fullNamePerson" );
-    let fullNameErrorMessage = document.getElementById( "fullNameErrorMessage" );
+    let fullNamePersonErrorMessage = document.getElementById( "fullNamePersonErrorMessage" );
 
     if ( fullNamePerson.value === "" ){
-      fullNameErrorMessage.textContent = "Please provide your name";
+      fullNamePersonErrorMessage.textContent = "Please provide your name";
     }
     else{
-      fullNameErrorMessage.textContent = "";
+      fullNamePersonErrorMessage.textContent = "";
     }
 	// Validate the agePerson input
     let agePerson = document.getElementById( "agePerson" );
@@ -68,9 +68,12 @@ function watchForm(){
     else{
       skillsErrorMessage.hidden = true;
     }
-    
-	/////////////////////////////////////////////////
-	console.log("A"); 
+	
+	
+	///////////////////////////////////////////////////////////////////////
+	
+    if( emailPerson.value && skillsPerson.value && degreePerson.value && birthdayPerson.value && agePerson.value && fullNamePerson.value){
+			console.log("A"); 
 	let postD = $(".formElement");
 	console.log(postD); 
 	
@@ -110,6 +113,10 @@ function watchForm(){
           alert("Person created"); 
       });
 	
+	
+		
+	}
+	/////////////////////////////////////////////////
 	
 	
 	/////////////////////////////////////////////////
