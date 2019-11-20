@@ -121,7 +121,7 @@ function watchForm(){
       body.email_reg = postD[0].value;
       body.password_reg = postD[1].value; 
       event.preventDefault();
-
+      console.log("hola"); 
       $.ajax({
         type: 'GET',
         url: '/employerDB/login-users/' + $('#password_reg').val()
