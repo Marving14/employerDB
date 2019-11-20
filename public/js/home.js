@@ -29,7 +29,7 @@ function watchForm(){
     let birthdayPerson = document.getElementById( "birthdayPerson" );
     let birthdayPersonErrorMessage = document.getElementById( "birthdayPersonErrorMessage" );
 
-    if ( birthdayPerson.value <0 ){
+    if ( birthdayPerson.value ==="" ){
       birthdayPersonErrorMessage.textContent = "Please provide your birthday ";
     }
     else{
@@ -52,7 +52,7 @@ function watchForm(){
     let emailPersonErrorMessage = document.getElementById( "emailPersonErrorMessage" );
 
     if ( emailPerson.value === "" ){
-      emailPersonErrorMessage.hidden = false;
+      emailPersonErrorMessage.textContent = "Please provide your email ";
     }
     else{
       emailPersonErrorMessage.hidden = true;
@@ -64,6 +64,7 @@ function watchForm(){
 
     if ( skillsPerson.value === "" ){
       skillsErrorMessage.hidden = false;
+		skillsErrorMessage.textContent = "Please provide your skills ";
     }
     else{
       skillsErrorMessage.hidden = true;
