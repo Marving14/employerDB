@@ -119,7 +119,7 @@ function watchForm(){
       console.log("hola"); 
       $.ajax({
         type: 'GET',
-        url: '/employerDB/login-users/' + $('#email_reg').val()
+        url: '/employerDB/login-users/' +$('#email_reg').val()
       }).done(function(data){
         console.log(data);
         // Mail ya existe en BD
@@ -137,7 +137,7 @@ function watchForm(){
         // Mail es nuevo y se registrara en BD
          
           alert("User not found");      
-      })
+      });
 
       
     }
