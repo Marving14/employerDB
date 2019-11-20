@@ -18,7 +18,7 @@ function watchForm(){
     let agePerson = document.getElementById( "agePerson" );
     let agePersonErrorMessage = document.getElementById( "agePersonErrorMessage" );
 
-    if ( agePerson.value >= 18 ){
+    if ( agePerson.value ==="" ){
       agePersonErrorMessage.textContent = "Please provide your age";
     }
     else{
