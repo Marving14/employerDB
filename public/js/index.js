@@ -57,7 +57,6 @@ function watchForm(){
       alert(" Passwords do not match");
     } else{
       // CASE WHEN everything is ok
-
       let postD = $(".formElement");
       let body = {}; 
       body.name = postD[0].value;
@@ -65,14 +64,14 @@ function watchForm(){
       body.password = postD[2].value; 
       event.preventDefault();
 
-
+      // Ajax cal for when 
       $.ajax({
         type: 'GET',
         url: '/employerDB/login-users/' +$('#email').val()
       }).done(function(data){
         console.log(data);
         // Mail ya existe en BD
-        alert("Mail ya existe, escriba uno diferente o inicie sesion");
+        alert("Email already exists, write a different email or start session");
       }).fail(function(data){
         // Mail es nuevo y se registrara en BD
           $.ajax({
@@ -87,7 +86,7 @@ function watchForm(){
             alert(err.responseText); 
           });
 
-          alert("registrado exitosamente"); 
+          alert("Register Successfully"); 
           parent.open("./home.html", "_self");        
       })
 
