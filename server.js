@@ -5,6 +5,7 @@ let moment = require('moment');
 const uuidv4 = require('uuid/v4');
 let { PostProyect } = require('./db-post-proyect-model');
 let {LoginEmployer } = require('./db-login-register-model.js'); 
+let {CreatePerson } = require('/db-create-person-model.js');
 // PostList  -> turned PostProyect
 let { DATABASE_URL, PORT } = require('./config');
 let mongoose = require('mongoose');
@@ -109,6 +110,30 @@ app.post('/employerDB/register-users', jsonParser, (req, res, next)=>{
 
 // Post Person Information 
 
+
+// CREATE PERSON  SECTION //////////
+app.post('/employerDB/create-person', jsonParser, (req, res, next)=>{
+    if(req.body.name && req.body.age && req.body.birthday && req.body.degree  && req.body.email && req.body.skills){
+        let nUser = req.body;
+        nUser.id = uuidv4();
+        CreatePerson.post(nUser).then(post => {
+            return res.status(201).json({
+                message : "User registered",
+                status : 201,
+                post : post
+            });
+        }).catch( error => {
+            res.statusMessage = "Something went wrong with the DB. Try again later.";
+            return res.status( 500 ).json({
+                status : 500,
+                message : "Something went wrong with the DB. Try again later."
+            })
+        });
+    }
+    else{
+        return res.status(406).json("Missing variables in body");
+    }
+});
 
 
 /*
