@@ -135,6 +135,23 @@ app.post('/employerDB/create-person', jsonParser, (req, res, next)=>{
     }
 });
 
+app.get('/employerDB/busqueda-persona/:email',(req, res, next) => {
+    CreatePerson.getbyMail(req.params.email).then(users => {
+        if(users.length == 0){
+            console.log(req.params.email);
+            console.log(users);
+            return res.status(404).json("User not found");
+        }
+        return res.status(200).json(users);
+    }).catch( error => {
+        res.statusMessage = "Something went wrong with the DB. Try again later.";
+        return res.status( 500 ).json({
+            status : 500,
+            message : "Something went wrong with the DB. Try again later."
+        })
+    });
+});
+
 
 /*
 app.get('/api/db-project',(req, res, next) => {

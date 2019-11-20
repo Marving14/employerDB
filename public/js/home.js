@@ -88,7 +88,7 @@ function watchForm(){
       // Ajax call for when 
       $.ajax({
         type: 'GET',
-        url: '/employerDB/login-users/' +$('#emailPerson').val()
+        url: '/employerDB/busqueda-persona/' +$('#emailPerson').val()
       }).done(function(data){
         console.log(data);
         // Mail ya existe en BD
