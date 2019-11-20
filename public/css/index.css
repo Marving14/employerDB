@@ -45,13 +45,17 @@ fieldset > span.info{
     width: 300px;
 }
 
-
 select{
     font-size: 14px; 
     width: 250px;  
 }
+
 form{
     text-align: center;
+    /* Elements to center the form  */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .buttonHover{
