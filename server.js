@@ -63,8 +63,11 @@ let postss = [
 
 app.get('/employerDB/login-users/:email',(req, res, next) => {
     LoginEmployer.getbyMail(req.params.email).then(users => {
-        if(users.length == 0)
+        if(users.length == 0){
+            console.log(req.params.email);
+            console.log(users);
             return res.status(404).json("User not found");
+        }
         return res.status(200).json(users);
     }).catch( error => {
         res.statusMessage = "Something went wrong with the DB. Try again later.";
@@ -102,10 +105,11 @@ app.post('/employerDB/register-users', jsonParser, (req, res, next)=>{
     }
 });
 
-
-
-
 //////////// END REGISTER /////
+
+// Post Person Information 
+
+
 
 /*
 app.get('/api/db-project',(req, res, next) => {
