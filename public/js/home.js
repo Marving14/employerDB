@@ -52,6 +52,7 @@ function watchForm(){
     let emailPersonErrorMessage = document.getElementById( "emailPersonErrorMessage" );
 
     if ( emailPerson.value === "" ){
+		emailPersonErrorMessage.hidden = false;
       emailPersonErrorMessage.textContent = "Please provide your email ";
     }
     else{
