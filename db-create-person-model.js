@@ -17,7 +17,7 @@ let userSchema = mongoose.Schema({
 let persons = mongoose.model( 'persons', userSchema );
 let CreatePerson = {
 	
-	getbyMail : function(userMail){
+	getPersonbyMail : function(userMail){
 		return persons.find({email: userMail})
 				.then(users => {
 					return users;
@@ -26,7 +26,7 @@ let CreatePerson = {
 					throw Error(err);
 				}); 
 	},
-	post : function(newUser){
+	postPerson : function(newUser){
 		return persons.create( newUser)
 				.then(users => {
 					return users;

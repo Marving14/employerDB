@@ -116,7 +116,7 @@ app.post('/employerDB/create-person', jsonParser, (req, res, next)=>{
     if(req.body.name && req.body.age && req.body.birthday && req.body.degree  && req.body.email && req.body.skills){
         let nUser = req.body;
         nUser.id = uuidv4();
-        CreatePerson.post(nUser).then(post => {
+        CreatePerson.postPerson(nUser).then(post => {
             return res.status(201).json({
                 message : "User registered",
                 status : 201,
@@ -136,7 +136,7 @@ app.post('/employerDB/create-person', jsonParser, (req, res, next)=>{
 });
 
 app.get('/employerDB/busqueda-persona/:email',(req, res, next) => {
-    CreatePerson.getbyMail(req.params.email).then(users => {
+    CreatePerson.getPersonbyMail(req.params.email).then(users => {
         if(users.length == 0){
             console.log(req.params.email);
             console.log(users);
