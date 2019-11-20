@@ -1,4 +1,6 @@
 function watchForm(){
+  
+  // Validations for the REGISTER FORM  
   let submitButton = document.getElementById( "submitButton" );
 
   let submitButtonL = document.getElementById("submitButtonL");
@@ -55,7 +57,7 @@ function watchForm(){
 
     if(passw.value != pass.value ){
       alert(" Passwords do not match");
-    } else{
+    } else if( passw.value != pass.value && passw.value != ""){
       // CASE WHEN everything is ok
       let postD = $(".formElement");
       let body = {}; 
@@ -64,7 +66,7 @@ function watchForm(){
       body.password = postD[2].value; 
       event.preventDefault();
 
-      // Ajax cal for when 
+      // Ajax call for when 
       $.ajax({
         type: 'GET',
         url: '/employerDB/login-users/' +$('#email').val()
@@ -96,9 +98,10 @@ function watchForm(){
 
 
 	
-  });    //////////// END REGISTER
+  });    
+  //////////// END REGISTER
 
-        //////  START LOGIN SECTION 
+ //////  START LOGIN SECTION 
 
  submitButtonL.addEventListener("click", ( event ) =>{
     event.preventDefault();
