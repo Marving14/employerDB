@@ -72,8 +72,8 @@ function watchForm(){
 	
 	///////////////////////////////////////////////////////////////////////
 	
-    if( emailPerson.value !=""){
-		//  && skillsPerson.value && degreePerson.value && birthdayPerson.value && agePerson.value && fullNamePerson.value
+    if( emailPerson.value !="" && birthdayPerson.value != ""){
+		//  && skillsPerson.value && degreePerson.value &&  && agePerson.value && fullNamePerson.value
 			console.log("A"); 
 	let postD = $(".formElement");
 	console.log(postD); 
