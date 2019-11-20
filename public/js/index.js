@@ -116,9 +116,9 @@ function watchForm(){
     }
     else{
 
-       let postD = $(".formElementL");
+      let postD = $(".formElementL");
       let body = {}; 
-      body.email = postD[0].value;
+      body.email_reg = postD[0].value;
       body.password_reg = postD[1].value; 
       event.preventDefault();
 
@@ -128,10 +128,10 @@ function watchForm(){
       }).done(function(data){
         console.log(data);
         // Mail ya existe en BD
-        console.log(data.password);
+        console.log(data[0].password);
         console.log(body.password_reg); 
         
-        if(data.password === body.password_reg){
+        if(data[0].password === body.password_reg){
 
            parent.open("./home.html", "_self");   
         }else{
