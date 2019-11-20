@@ -88,7 +88,7 @@ function watchForm(){
 
           alert("Register Successfully"); 
           parent.open("./home.html", "_self");        
-      })
+      });
 
 
 
