@@ -29,7 +29,7 @@ function watchForm(){
     let birthdayPerson = document.getElementById( "birthdayPerson" );
     let birthdayPersonErrorMessage = document.getElementById( "birthdayPersonErrorMessage" );
 
-    if ( birthdayPerson.value ==="" ){
+    if ( birthdayPerson.value <0 ){
       birthdayPersonErrorMessage.textContent = "Please provide your birthday ";
     }
     else{
