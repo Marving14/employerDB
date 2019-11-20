@@ -34,6 +34,15 @@ fieldset > span.info{
 
 }
 
+form{
+    text-align: center;
+    /* Elements to center the form  */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 .formElement{
     font-size: 14px;
     padding: 5px 10px;
