@@ -5,7 +5,7 @@ let moment = require('moment');
 const uuidv4 = require('uuid/v4');
 let { PostProyect } = require('./db-post-proyect-model');
 let {LoginEmployer } = require('./db-login-register-model.js'); 
-let {CreatePerson } = require('/db-create-person-model.js');
+let {CreatePerson } = require('./db-create-person-model.js');
 // PostList  -> turned PostProyect
 let { DATABASE_URL, PORT } = require('./config');
 let mongoose = require('mongoose');
