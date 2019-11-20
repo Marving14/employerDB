@@ -70,7 +70,11 @@ function watchForm(){
     }
     
 	/////////////////////////////////////////////////
+	console.log("A"); 
 	let postD = $(".formElement");
+	console.log(postD); 
+	
+	
     let body = {}; 
       body.name = postD[0].value;
 	  body.age = postD[1].value;
@@ -80,6 +84,7 @@ function watchForm(){
 	  body.skills = postD[5].value;
       
       event.preventDefault();
+	  
       // Ajax call for when 
       $.ajax({
         type: 'GET',
