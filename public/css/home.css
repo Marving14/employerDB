@@ -67,12 +67,19 @@ select{
   background-color: #56C56F;
 }
 
+.submitButton{
+  background-color: #56C56F;
+}
+
 .buttonHover:hover {
   cursor: pointer;
   opacity: 0.8;
 }
 
 #cancelButton{
+  background-color: #D9534F;
+}
+.cancelButton {
   background-color: #D9534F;
 }
 
