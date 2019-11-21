@@ -244,8 +244,13 @@ function watchForm(){
       }).done(function(data){
         console.log(data);
 		
-		 $('#fullNamePersonUpdate').val(data[0].name); 
-		 console.log( data[0].name); 
+		 $('#fullNamePersonUpdate').val(data[0].name);
+		 $('#agePersonUpdate').val(data[0].age);
+		 $('#birthdayPersonUpdate').val(data[0].birthday);
+		 $('#degreePersonUpdate').val(data[0].degree);
+		 $('#emailPersonUpdate').val(data[0].email);
+		 $('#skillsPersonUpdate').val(data[0].skills);
+		 
 		 
 		 
 		 
