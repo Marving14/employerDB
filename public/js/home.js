@@ -257,6 +257,66 @@ function watchForm(){
 	  }); 
 	  
 	});
+	
+	////////////////////////////////////////////////////////
+	//// UPDATE PROJECT 
+	let UpdateProject = document.getElementById( "submitButtonSearchUpdateProject" );
+	let submitButtonProjectUpdate = document.getElementById("submitButtonProjectUpdate");
+
+	///// PRIMER AJAX 
+	UpdateProject.addEventListener("click", ( event ) =>{
+    event.preventDefault();
+    console.log("entra a Search Update PROJECT "); 
+
+
+     // Ajax call for when 
+      $.ajax({
+        type: 'GET',
+        url: '/employerDB/busqueda-proyecto/' +$('#itemToAddProject').val()
+      }).done(function(data){
+        console.log(data);
+		
+		 $('#IdentifierProjectUpdate').val(data[0].identifier);
+		 $('#fullNameProjectUpdate').val(data[0].name);
+		 $('#sizeProjectUpdate').val(data[0].size);
+		 $('#descriptionProjectUpdate').val(data[0].description);	 		 
+        // Mail encontrado  existe en BD
+	  }).fail(function(err){
+            alert(err.responseText); 
+	  }); 
+	  
+	});
+	
+	// SEGUNDO AJAX 
+		submitButtonProjectUpdate.addEventListener("click", ( event ) =>{
+		event.preventDefault();
+		  console.log("entra a submitButtonProjectUpdate  "); 
+		  
+			 let postD = $(".formElementProjectUpdate");
+			console.log(postD); 
+		  
+		  
+			let body = {}; 
+			  body.identifier = postD[0].value;
+			body.name = postD[1].value;
+			body.size = postD[2].value;
+			body.description = postD[3].value;
+
+			 $.ajax({
+				type:'PUT',
+				url:'/employerDB/update-project/'+body.identifier,
+				contentType: "application/json",
+				data: JSON.stringify(body)
+			}).done(function(data){
+				console.log(data);
+			   // loadList();
+			   alert("Project data updated");
+			}).fail(function(msg){
+				alert(msg.responseText);
+			});
+		  }); 
+
+	
 
 
     ///////////////////////////////////////////////////////
@@ -289,11 +349,7 @@ function watchForm(){
         }).fail(function(msg){
             alert(msg.responseText);
         });
-
-        alert("User not found in data base");
       }); 
-
-
 
    ////////////////////////////////////////////////////////////////////////
   
@@ -322,8 +378,6 @@ function watchForm(){
 
       selectedSection.hidden = false;
       selectedSection.className = "currentSelected";
-
-
     });
   }
 }

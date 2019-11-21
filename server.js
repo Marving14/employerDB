@@ -159,6 +159,26 @@ app.get('/employerDB/busqueda-proyecto/:identifier',(req, res, next) => {
     });
 });
 
+// put project
+app.put('/employerDB/update-person/:identifier', jsonParser, (req, res, next)=>{
+    if(req.body.identifier){
+        let post = req.body;
+        if(post.identifier != req.params.identifier)
+            return res.status(409).json("emails don't match");
+        PostProyect.updatePerson(post).then(posts => {
+            return res.status(202).json(posts);
+        }).catch( error => {
+            res.statusMessage = "Something went wrong with the DB. Try again later.";
+            return res.status( 500 ).json({
+                status : 500,
+                message : "Something went wrong with the DB. Try again later."
+            })
+        });
+    }
+    else{
+        return res.status(406).json("Missing id in body");
+    }
+});
 
 
 

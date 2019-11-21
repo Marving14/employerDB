@@ -32,6 +32,15 @@ let PostProyect = {
 				.catch( error => {
 					throw Error(error);
 				});
+	},
+	updateProject: function( Project ){
+		return projects.updateOne( {email: Project.identifier}, Project)
+				.then( posts => {
+					return posts;
+				})
+				.catch( error => {
+					throw Error(error);
+				});
 	}
 	/*
 	del : function( iD ){
