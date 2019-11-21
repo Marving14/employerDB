@@ -103,7 +103,7 @@ function watchForm(){
         // Mail es nuevo y se registrara en BD
           $.ajax({
             type: 'POST',
-            url: '/employerDB/create-person ',
+            url: '/employerDB/create-person',
             contentType: "application/json",
             data: JSON.stringify(body)
           }).done(function(data){
@@ -224,8 +224,62 @@ function watchForm(){
 	}	
 	
    });
+
+
+   ////////////////////////////////////////////////////////////////////////
+
+   let SearchUpdatePerson = document.getElementById( "submitButtonSearchUpdatePerson" );
+
+
+   SearchUpdatePerson.addEventListener("click", ( event ) =>{
+    event.preventDefault();
+    console.log("entra a Search Update Person "); 
+
+
+     // Ajax call for when 
+      $.ajax({
+        type: 'GET',
+        url: '/employerDB/busqueda-persona/' +$('#itemToAdd').val()
+      }).done(function(data){
+        console.log(data);
+        // Mail encontrado  existe en BD
+        let postD = $(".formElementPersonUpdate");
+        console.log(postD); 
+      
+      
+        let body = {}; 
+          body.name = postD[0].value;
+        body.age = postD[1].value;
+        body.birthday = postD[2].value;
+        body.degree = postD[3].value;
+          body.email = postD[4].value;
+        body.skills = postD[5].value;
+
+         $.ajax({
+            type:'PUT',
+            url:'/employerDB/update-person'+body.email,
+            contentType: "application/json",
+            data: JSON.stringify(body)
+        }).done(function(data){
+            console.log(data);
+           // loadList();
+           alert("Datos de usuario actualizados");
+        }).fail(function(msg){
+            alert(msg.responseText);
+        });
+
+        alert("User not found in data base");
+      }); 
+
+
+
+  });
+
+
+
+   ////////////////////////////////////////////////////////////////////////
   
-  
+	
 
   // Functionality for the navigation menu
   let menuItems = document.getElementsByTagName( "li" );

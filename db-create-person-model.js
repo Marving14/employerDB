@@ -34,6 +34,15 @@ let CreatePerson = {
 				.catch( err => {
 					throw Error(err);
 				}); 
+	},
+	updatePerson: function( Person ){
+		return persons.updateOne( {email: Person.email}, Person)
+				.then( posts => {
+					return posts;
+				})
+				.catch( error => {
+					throw Error(error);
+				});
 	}
 /*
 	del : function( iD ){
@@ -45,15 +54,7 @@ let CreatePerson = {
 					throw Error(error);
 				});
 	},
-	update: function( email ){
-		return Post.updateOne( {id: email.id}, email)
-				.then( posts => {
-					return posts;
-				})
-				.catch( error => {
-					throw Error(error);
-				});
-	}
+	
 	*/
 };
 

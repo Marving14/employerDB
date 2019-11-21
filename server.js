@@ -212,6 +212,25 @@ app.get('/employerDB/busqueda-persona/:email',(req, res, next) => {
     });
 });
 
+app.put('/employerDB/update-person/:email', jsonParser, (req, res, next)=>{
+    if(req.body.email){
+        let post = req.body;
+        if(post.email != req.params.email)
+            return res.status(409).json("emails don't match");
+        CreatePerson.updatePerson(post).then(posts => {
+            return res.status(202).json(posts);
+        }).catch( error => {
+            res.statusMessage = "Something went wrong with the DB. Try again later.";
+            return res.status( 500 ).json({
+                status : 500,
+                message : "Something went wrong with the DB. Try again later."
+            })
+        });
+    }
+    else{
+        return res.status(406).json("Missing id in body");
+    }
+});
 
 
 
