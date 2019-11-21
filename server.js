@@ -107,51 +107,6 @@ app.post('/employerDB/register-users', jsonParser, (req, res, next)=>{
 });
 
 //////////// END REGISTER /////
-
-// Post Person Information 
-
-
-// CREATE PERSON  SECTION //////////
-app.post('/employerDB/create-person', jsonParser, (req, res, next)=>{
-    if(req.body.name && req.body.age && req.body.birthday && req.body.degree  && req.body.email && req.body.skills){
-        let nUser = req.body;
-        nUser.id = uuidv4();
-        CreatePerson.postPerson(nUser).then(post => {
-            return res.status(201).json({
-                message : "User registered",
-                status : 201,
-                post : post
-            });
-        }).catch( error => {
-            res.statusMessage = "Something went wrong with the DB. Try again later.";
-            return res.status( 500 ).json({
-                status : 500,
-                message : "Something went wrong with the DB. Try again later."
-            })
-        });
-    }
-    else{
-        return res.status(406).json("Missing variables in body");
-    }
-});
-
-app.get('/employerDB/busqueda-persona/:email',(req, res, next) => {
-    CreatePerson.getPersonbyMail(req.params.email).then(users => {
-        if(users.length == 0){
-            console.log(req.params.email);
-            console.log(users);
-            return res.status(404).json("User not found");
-        }
-        return res.status(200).json(users);
-    }).catch( error => {
-        res.statusMessage = "Something went wrong with the DB. Try again later.";
-        return res.status( 500 ).json({
-            status : 500,
-            message : "Something went wrong with the DB. Try again later."
-        })
-    });
-});
-
 ///////////////////////////////////////////////////////////
 // CREATE PROJECT 
 
@@ -197,6 +152,60 @@ app.get('/employerDB/busqueda-proyecto/:identifier',(req, res, next) => {
         })
     });
 });
+
+
+
+
+
+
+
+
+
+
+// Post Person Information 
+
+
+// CREATE PERSON  SECTION //////////
+app.post('/employerDB/create-person', jsonParser, (req, res, next)=>{
+    if(req.body.name && req.body.age && req.body.birthday && req.body.degree  && req.body.email && req.body.skills){
+        let nUser = req.body;
+        nUser.id = uuidv4();
+        CreatePerson.postPerson(nUser).then(post => {
+            return res.status(201).json({
+                message : "User registered",
+                status : 201,
+                post : post
+            });
+        }).catch( error => {
+            res.statusMessage = "Something went wrong with the DB. Try again later.";
+            return res.status( 500 ).json({
+                status : 500,
+                message : "Something went wrong with the DB. Try again later."
+            })
+        });
+    }
+    else{
+        return res.status(406).json("Missing variables in body");
+    }
+});
+
+app.get('/employerDB/busqueda-persona/:email',(req, res, next) => {
+    CreatePerson.getPersonbyMail(req.params.email).then(users => {
+        if(users.length == 0){
+            console.log(req.params.email);
+            console.log(users);
+            return res.status(404).json("User not found");
+        }
+        return res.status(200).json(users);
+    }).catch( error => {
+        res.statusMessage = "Something went wrong with the DB. Try again later.";
+        return res.status( 500 ).json({
+            status : 500,
+            message : "Something went wrong with the DB. Try again later."
+        })
+    });
+});
+
 
 
 
