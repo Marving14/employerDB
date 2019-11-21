@@ -15,7 +15,7 @@
     </header>
     <nav>
       <ul id="menu">
-        <li id="home"> 
+        <li id="home" class="selected"> 
           Home 
         </li>
         <li id="createPerson"> 
@@ -24,20 +24,20 @@
         <li id="createProject"> 
           Create Project
         </li>
-        <li id="search" class="selected"> 
+        <li id="search"> 
           Search 
         </li>
-        <li id="update"> 
-          Update 
+        <li id="updatePerson"> 
+          Update Person
         </li>
-        <li id="copyright"> 
-          Copyright 
+        <li id="updateProject"> 
+          Update Project 
         </li>
       </ul>
     </nav>
     <main>
 
-      <section id="createPersonSection" class="currentSelected">
+      <section id="createPersonSection" hidden>
         <form>
           <fieldset>
             <legend>
@@ -139,7 +139,7 @@
         </form>
         
       </section>
-      <section id="homeSection" hidden>
+      <section id="homeSection"  class="currentSelected">
         This is the home
 
         <div>
@@ -187,10 +187,10 @@
       <section id="searchSection" hidden>
         This is the about
       </section>
-      <section id="updateSection" hidden>
+      <section id="updatePerson" hidden>
         This is the contact
       </section>
-      <section id="copyrightSection" hidden>
+      <section id="updateProject" hidden>
         This is the copyright
       </section>
     </main>
