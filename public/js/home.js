@@ -132,6 +132,20 @@ function watchForm(){
   
    submitButtonPerson.addEventListener("click", ( event ) =>{
     event.preventDefault();
+	
+	
+		
+		// Validate the IdentifierProject input
+		let IdentifierProject = document.getElementById( "IdentifierProject" );
+		let IdentifierProjectErrorMessage = document.getElementById( "IdentifierProjectErrorMessage" );
+
+		if ( IdentifierProject.value === "" ){
+		  IdentifierProjectErrorMessage.textContent = "Please provide your project's identifier ";
+		}
+		else{
+		  IdentifierProjectErrorMessage.textContent = "";
+		}
+		
 		
 		// Validate the fullNameProject input
 		let fullNameProject = document.getElementById( "fullNameProject" );
@@ -168,35 +182,34 @@ function watchForm(){
 		
 		
 		
-    if( descriptionProject.value!="" && sizeProject.value!="" && fullNameProject.value!="" ){
+    if( IdentifierProject.value!="" && descriptionProject.value!="" && sizeProject.value!="" && fullNameProject.value!="" ){
 			console.log("A"); 
 	let postD = $(".formElement");
 	console.log(postD); 
 	
 	
     let body = {}; 
-      body.name = postD[0].value;
-	  body.age = postD[1].value;
-	  body.birthday = postD[2].value;
-	  body.degree = postD[3].value;
-      body.email = postD[4].value;
-	  body.skills = postD[5].value;
+      body.identifier = postD[0].value;
+	  body.name = postD[1].value;
+	  body.size = postD[2].value;
+	  body.description = postD[3].value;
+     
       
       event.preventDefault();
 	  
       // Ajax call for when 
       $.ajax({
         type: 'GET',
-        url: '/employerDB/busqueda-persona/' +$('#emailPerson').val()
+        url: '/employerDB/busqueda-proyecto/' +$('#IdentifierProject').val()
       }).done(function(data){
         console.log(data);
-        // Mail ya existe en BD
-        alert("Email already exists, person is probably already in database");
+        // Identifier ya existe en BD
+        alert("Identifier already exists, use a different id");
       }).fail(function(data){
-        // Mail es nuevo y se registrara en BD
+        // identifier es nuevo y se registrara en BD
           $.ajax({
             type: 'POST',
-            url: '/employerDB/create-person ',
+            url: '/employerDB/create-project',
             contentType: "application/json",
             data: JSON.stringify(body)
           }).done(function(data){
@@ -206,15 +219,10 @@ function watchForm(){
             alert(err.responseText); 
           });
 
-          alert("Person created"); 
+          alert("Project created"); 
       });
-	
-	
 		
-	}
-		
-		
-		
+	}	
 	
    });
   

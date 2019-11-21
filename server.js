@@ -155,6 +155,8 @@ app.get('/employerDB/busqueda-persona/:email',(req, res, next) => {
 ///////////////////////////////////////////////////////////
 // CREATE PROJECT 
 
+
+	//POST PROJECT 
 app.post('/employerDB/create-project', jsonParser, (req, res, next)=>{
     if(req.body.name && req.body.size && req.body.description && req.body.identifier){
         let nUser = req.body;
@@ -178,6 +180,7 @@ app.post('/employerDB/create-project', jsonParser, (req, res, next)=>{
     }
 });
 
+	//FIND PROJECT BY IDENTIFIER 
 app.get('/employerDB/busqueda-proyecto/:identifier',(req, res, next) => {
     PostProyect.getbyIdentifier(req.params.identifier).then(users => {
         if(users.length == 0){

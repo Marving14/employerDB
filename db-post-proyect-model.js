@@ -5,12 +5,11 @@ let postSchema = mongoose.Schema({
 	id : { 
 		type : String,
 		required : true },
+	identifier: {type: String},
 	name: { type: String},
 	size: {type: String},
-	description: { type: String},
-	identifier: {type: String}
+	description: { type: String}
 });
-
 
 
 let projects = mongoose.model( 'projects', postSchema );
