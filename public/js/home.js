@@ -1,4 +1,6 @@
 function watchForm(){
+	loadProjectsInSearch(); 
+	
   let submitButtonPerson = document.getElementById( "submitButtonPerson" );
   let submitButtonProject = document.getElementById( "submitButtonProject" );
 
@@ -380,6 +382,22 @@ function watchForm(){
       selectedSection.className = "currentSelected";
     });
   }
+}
+
+
+function loadProjectsInSearch(){
+	$('#searchSection').html("");
+	$.ajax({
+		type: 'GET',
+		url: '/employerDB/busqueda-proyectos'
+	}).done(function(data){
+		for(let i=0; i<data.length; i++){
+			$('#searchSection').append("<div class='card'><div class='card-header'>Projects in DB</div><div class="+"card-body"+">" + 
+			"<h5 class="+"card-title"+">" + JSON.stringify(data[i].name) + "</h5>"+
+			"<p class="+"card-text"+">" + JSON.stringify(data[i].description) +"</p>"+
+			"<a href="#" class="+"btn btn-primary"+">" + 'Follow' +"</a></div></div>");
+		}
+	});
 }
 
 watchForm();

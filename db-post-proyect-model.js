@@ -24,6 +24,15 @@ let PostProyect = {
 					throw Error( error );
 				});
 	},
+	getProjects: function(){
+		return projects.find()
+				.then(pros =>{
+					return pros; 
+				})
+				.catch( error => {
+					throw Error(error); 
+				})
+	},
 	postProject : function( newPost ){
 		return projects.create( newPost )
 				.then( post => {

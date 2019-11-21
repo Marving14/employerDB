@@ -113,12 +113,7 @@ app.post('/employerDB/register-users', jsonParser, (req, res, next)=>{
 
 	//POST PROJECT 
 app.post('/employerDB/create-project', jsonParser, (req, res, next)=>{
-	console.log(req.body.identifier);
-	console.log(req.body.name);
-	console.log(req.body.size);
-	console.log(req.body.description);
-	
-	
+		
     if(req.body.identifier && req.body.name && req.body.size && req.body.description){
         let nUser = req.body;
         nUser.id = uuidv4();
@@ -141,7 +136,7 @@ app.post('/employerDB/create-project', jsonParser, (req, res, next)=>{
     }
 });
 
-	//FIND PROJECT BY IDENTIFIER 
+//  FIND PROJECT BY IDENTIFIER 
 app.get('/employerDB/busqueda-proyecto/:identifier',(req, res, next) => {
     PostProyect.getbyIdentifier(req.params.identifier).then(users => {
         if(users.length == 0){
@@ -158,8 +153,25 @@ app.get('/employerDB/busqueda-proyecto/:identifier',(req, res, next) => {
         })
     });
 });
+//  End get project by identifier 
 
-// put project
+// Get all projects 
+
+app.get('/employerDB/busqueda-proyectos',(req, res, next) => {
+    PostProyect.getProjects().then(users => {
+        return res.status(200).json(users);
+    }).catch( error => {
+        res.statusMessage = "Something went wrong with the DB. Try again later.";
+        return res.status( 500 ).json({
+            status : 500,
+            message : "Something went wrong with the DB. Try again later."
+        })
+    });
+});
+
+// End get all projects 
+
+// Update one project by identifier 
 app.put('/employerDB/update-project/:identifier', jsonParser, (req, res, next)=>{
     if(req.body.identifier){
         let post = req.body;
@@ -179,7 +191,7 @@ app.put('/employerDB/update-project/:identifier', jsonParser, (req, res, next)=>
         return res.status(406).json("Missing id in body");
     }
 });
-
+/////// End update by identifier
 
 
 
@@ -215,6 +227,7 @@ app.post('/employerDB/create-person', jsonParser, (req, res, next)=>{
     }
 });
 
+// Get one person by email
 app.get('/employerDB/busqueda-persona/:email',(req, res, next) => {
     CreatePerson.getPersonbyMail(req.params.email).then(users => {
         if(users.length == 0){
@@ -232,6 +245,7 @@ app.get('/employerDB/busqueda-persona/:email',(req, res, next) => {
     });
 });
 
+// Update one person by email
 app.put('/employerDB/update-person/:email', jsonParser, (req, res, next)=>{
     if(req.body.email){
         let post = req.body;
