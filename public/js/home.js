@@ -250,17 +250,12 @@ function watchForm(){
 		 $('#degreePersonUpdate').val(data[0].degree);
 		 $('#emailPersonUpdate').val(data[0].email);
 		 $('#skillsPersonUpdate').val(data[0].skills);
-		 
-		 
-		 
-		 
+		 		 
         // Mail encontrado  existe en BD
 	  }).fail(function(err){
             alert(err.responseText); 
 	  }); 
 	  
-      
-
 	});
 
 
