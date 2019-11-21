@@ -244,7 +244,7 @@ function watchForm(){
       }).done(function(data){
         console.log(data);
 		
-		 $('#fullNamePersonUpdate').text = data.name; 
+		 $('#fullNamePersonUpdate').value = data[0].name; 
         // Mail encontrado  existe en BD
 	  }).fail(function(err){
             alert(err.responseText); 
