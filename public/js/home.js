@@ -101,11 +101,11 @@ function watchForm(){
             data: JSON.stringify(body)
           }).done(function(data){
             console.log(data);
-
+			 alert("Person created");
           }).fail(function(err){
             alert(err.responseText); 
           });
-          alert("Person created");
+         
           // Clean Input 
       });	
 	}
