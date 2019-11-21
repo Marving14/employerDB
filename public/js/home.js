@@ -229,6 +229,7 @@ function watchForm(){
    ////////////////////////////////////////////////////////////////////////
 
    let SearchUpdatePerson = document.getElementById( "submitButtonSearchUpdatePerson" );
+   let submitButtonPersonUpdate = document.getElementById("submitButtonPersonUpdate");
 
 
    SearchUpdatePerson.addEventListener("click", ( event ) =>{
@@ -243,7 +244,22 @@ function watchForm(){
       }).done(function(data){
         console.log(data);
         // Mail encontrado  existe en BD
-        let postD = $(".formElementPersonUpdate");
+	  }).fail(function(err){
+            alert(err.responseText); 
+	  }); 
+	  
+       $('#fullNamePersonUpdate').value(data.name); 
+
+	});
+
+
+    ///////////////////////////////////////////////////////
+
+    submitButtonPersonUpdate.addEventListener("click", ( event ) =>{
+      event.preventDefault();
+      console.log("entra a submitButtonPersonUpdate  "); 
+      
+         let postD = $(".formElementPersonUpdate");
         console.log(postD); 
       
       
@@ -272,9 +288,7 @@ function watchForm(){
       }); 
 
 
-
-  });
-
+    }); 
 
 
    ////////////////////////////////////////////////////////////////////////
