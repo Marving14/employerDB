@@ -204,12 +204,13 @@ function watchForm(){
             data: JSON.stringify(body)
           }).done(function(data){
             console.log(data);
-
+				loadProjectsInSearch(); 
+				alert("Project created"); 
           }).fail(function(err){
             alert(err.responseText); 
           });
 
-          alert("Project created"); 
+          
       });
 		
 	}	
