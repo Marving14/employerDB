@@ -68,7 +68,7 @@ function watchForm(){
     }
 	///////////////////////////////////////////////////////////////////////
 	
-    if( emailPerson.value !="" && birthdayPerson.value != "" && skillsPerson.value!="" && degreePerson.value!="" && fullNamePerson.value!="" && agePerson.value!="" ){
+    if( emailPerson.value !="" && birthdayPerson.value!= "" && skillsPerson.value!="" && degreePerson.value!="" && fullNamePerson.value!="" && agePerson.value!="" ){
 			console.log("A"); 
 	let postD = $(".formElementPerson");
 	console.log(postD); 
@@ -79,7 +79,12 @@ function watchForm(){
 	  body.age = postD[1].value;
 	  body.birthday = postD[2].value;
 	  body.degree = postD[3].value;
-      body.email = postD[4].value;
+	  
+	  console.log($("#emailPerson").val());
+	  console.log(postD[3].value; 
+	  console.log(body.degree);
+      
+	  body.email = postD[4].value;
 	  body.skills = postD[5].value;
       
       event.preventDefault();
