@@ -48,6 +48,16 @@ form{
     padding: 5px 10px;
     width: 300px;
 }
+.formElementPerson{
+    font-size: 14px;
+    padding: 5px 10px;
+    width: 300px;
+}
+.formElementProject{
+    font-size: 14px;
+    padding: 5px 10px;
+    width: 300px;
+}
 
 select{
     font-size: 14px; 
