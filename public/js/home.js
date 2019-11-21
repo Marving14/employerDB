@@ -279,7 +279,7 @@ function watchForm(){
 
          $.ajax({
             type:'PUT',
-            url:'/employerDB/update-person'+body.email,
+            url:'/employerDB/update-person/'+body.email,
             contentType: "application/json",
             data: JSON.stringify(body)
         }).done(function(data){
