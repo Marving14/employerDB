@@ -81,6 +81,14 @@ function watchForm(){
 	  body.degree = postD[3].value; 
 	  body.email = postD[4].value;
 	  body.skills = postD[5].value;
+	  
+	  
+	  console.log(body.name);
+	  console.log(body.age);
+	  console.log(body.birthday);
+	  console.log(body.degree);
+	  console.log(body.email);
+	  console.log(body.skills); 
       
       event.preventDefault();
 	  
