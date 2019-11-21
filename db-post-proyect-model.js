@@ -34,7 +34,7 @@ let PostProyect = {
 				});
 	},
 	updateProject: function( Project ){
-		return projects.updateOne( {email: Project.identifier}, Project)
+		return projects.updateOne( {identifier: Project.identifier}, Project)
 				.then( posts => {
 					return posts;
 				})
