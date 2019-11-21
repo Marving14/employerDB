@@ -113,6 +113,12 @@ app.post('/employerDB/register-users', jsonParser, (req, res, next)=>{
 
 	//POST PROJECT 
 app.post('/employerDB/create-project', jsonParser, (req, res, next)=>{
+	console.log(req.body.identifier);
+	console.log(req.body.name);
+	console.log(req.body.size);
+	console.log(req.body.description);
+	
+	
     if(req.body.identifier && req.body.name && req.body.size && req.body.description){
         let nUser = req.body;
         nUser.id = uuidv4();
@@ -131,7 +137,7 @@ app.post('/employerDB/create-project', jsonParser, (req, res, next)=>{
         });
     }
     else{
-        return res.status(406).json("Missing variables in body");
+        return res.status(406).json("Missing variables in body, PROJECT");
     }
 });
 
