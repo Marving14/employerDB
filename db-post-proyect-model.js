@@ -51,15 +51,6 @@ let PostProyect = {
 				.catch( error => {
 					throw Error(error);
 				});
-	},
-	update: function( nPost ){
-		return projects.updateOne( {id: nPost.id}, nPost)
-				.then( posts => {
-					return posts;
-				})
-				.catch( error => {
-					throw Error(error);
-				});
 	}
 	*/
 };

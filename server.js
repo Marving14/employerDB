@@ -165,7 +165,7 @@ app.put('/employerDB/update-project/:identifier', jsonParser, (req, res, next)=>
         let post = req.body;
         if(post.identifier != req.params.identifier)
             return res.status(409).json("emails don't match");
-        PostProyect.updatePerson(post).then(posts => {
+        PostProyect.updateProject(post).then(posts => {
             return res.status(202).json(posts);
         }).catch( error => {
             res.statusMessage = "Something went wrong with the DB. Try again later.";
