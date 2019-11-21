@@ -158,7 +158,7 @@ app.get('/employerDB/busqueda-persona/:email',(req, res, next) => {
 
 	//POST PROJECT 
 app.post('/employerDB/create-project', jsonParser, (req, res, next)=>{
-    if(req.body.name && req.body.size && req.body.description && req.body.identifier){
+    if(req.body.identifier && req.body.name && req.body.size && req.body.description){
         let nUser = req.body;
         nUser.id = uuidv4();
         PostProyect.postProject(nUser).then(post => {
