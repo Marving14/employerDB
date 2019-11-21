@@ -113,7 +113,10 @@ function watchForm(){
             alert(err.responseText); 
           });
 
-          alert("Person created"); 
+          alert("Person created");
+          // Clean Input 
+          
+
       });
 	
 	
