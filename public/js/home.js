@@ -80,8 +80,8 @@ function watchForm(){
 	  body.birthday = postD[2].value;
 	  body.degree = postD[3].value;
 	  
-	  console.log($("#emailPerson").val());
-	  console.log(postD[3].value; 
+	  //console.log($("#emailPerson").val());
+	  console.log(postD[3].value); 
 	  console.log(body.degree);
       
 	  body.email = postD[4].value;
