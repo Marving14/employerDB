@@ -7,7 +7,7 @@ let postSchema = mongoose.Schema({
 		required : true },
 	identifier: {type: String},
 	name: { type: String},
-	size: {type: String},
+	size: {type: Number},
 	description: { type: String}
 });
 

@@ -57,7 +57,7 @@ function watchForm(){
 
     if(passw.value != pass.value ){
       alert(" Passwords do not match");
-    } else if( passw.value != pass.value && passw.value != ""){
+    } else if( passw.value == pass.value && passw.value != ""){
       // CASE WHEN everything is ok
       let postD = $(".formElement");
       let body = {}; 
