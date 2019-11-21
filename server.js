@@ -78,8 +78,6 @@ app.get('/employerDB/login-users/:email',(req, res, next) => {
         })
     });
 });
-
-
 //////////// END LOGIN /////////////
 
 // REGISTER SECTION //////////

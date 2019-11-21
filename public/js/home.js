@@ -4,13 +4,12 @@ function watchForm(){
   let submitButtonPerson = document.getElementById( "submitButtonPerson" );
   let submitButtonProject = document.getElementById( "submitButtonProject" );
 
+	// CREATE PERSON 
   submitButtonPerson.addEventListener("click", ( event ) =>{
     event.preventDefault();
-    
     // Validate the fullNamePerson input
     let fullNamePerson = document.getElementById( "fullNamePerson" );
     let fullNamePersonErrorMessage = document.getElementById( "fullNamePersonErrorMessage" );
-
     if ( fullNamePerson.value === "" ){
       fullNamePersonErrorMessage.textContent = "Please provide your name";
     }
@@ -20,36 +19,30 @@ function watchForm(){
 	// Validate the agePerson input
     let agePerson = document.getElementById( "agePerson" );
     let agePersonErrorMessage = document.getElementById( "agePersonErrorMessage" );
-
     if ( agePerson.value ==="" ){
       agePersonErrorMessage.textContent = "Please provide your age";
     }
     else{
       agePersonErrorMessage.textContent = "";
     }
-	
 	// Validate the birthdayPerson input
     let birthdayPerson = document.getElementById( "birthdayPerson" );
     let birthdayPersonErrorMessage = document.getElementById( "birthdayPersonErrorMessage" );
-
     if ( birthdayPerson.value ==="" ){
       birthdayPersonErrorMessage.textContent = "Please provide your birthday ";
     }
     else{
       birthdayPersonErrorMessage.textContent = "";
     }
-	
 	// Validate the degreePerson input
     let degreePerson = document.getElementById( "degreePerson" );
     let degreePersonErrorMessage = document.getElementById( "degreePersonErrorMessage" );
-
     if ( degreePerson.value ==="" ){
       degreePersonErrorMessage.textContent = "Please provide your Degree ";
     }
     else{
       degreePersonErrorMessage.textContent = "";
     }
-
     // Validate the emailPerson input
     let emailPerson = document.getElementById( "emailPerson" );
     let emailPersonErrorMessage = document.getElementById( "emailPersonErrorMessage" );
@@ -73,8 +66,6 @@ function watchForm(){
     else{
       skillsErrorMessage.hidden = true;
     }
-	
-	
 	///////////////////////////////////////////////////////////////////////
 	
     if( emailPerson.value !="" && birthdayPerson.value != "" && skillsPerson.value!="" && degreePerson.value!="" && fullNamePerson.value!="" && agePerson.value!="" ){
