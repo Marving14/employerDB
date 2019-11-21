@@ -105,24 +105,14 @@ function watchForm(){
           }).fail(function(err){
             alert(err.responseText); 
           });
-
           alert("Person created");
           // Clean Input 
-          
-
-      });
-	
-	
-		
+      });	
 	}
-	/////////////////////////////////////////////////
-	
-	
-	/////////////////////////////////////////////////
 
-  });
+  }); // End create person 
   
-  
+  // CREATE PROJECT
    submitButtonProject.addEventListener("click", ( event ) =>{
     event.preventDefault();
 		console.log("entra Submit project"); 
