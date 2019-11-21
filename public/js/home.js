@@ -244,7 +244,7 @@ function watchForm(){
       }).done(function(data){
         console.log(data);
 		
-		 $('#fullNamePersonUpdate').value = data.name; 
+		 $('#fullNamePersonUpdate').text = data.name; 
         // Mail encontrado  existe en BD
 	  }).fail(function(err){
             alert(err.responseText); 
@@ -289,8 +289,6 @@ function watchForm(){
         alert("User not found in data base");
       }); 
 
-
-  
 
 
    ////////////////////////////////////////////////////////////////////////
