@@ -243,12 +243,14 @@ function watchForm(){
         url: '/employerDB/busqueda-persona/' +$('#itemToAdd').val()
       }).done(function(data){
         console.log(data);
+		
+		 $('#fullNamePersonUpdate').value = data.name; 
         // Mail encontrado  existe en BD
 	  }).fail(function(err){
             alert(err.responseText); 
 	  }); 
 	  
-       $('#fullNamePersonUpdate').value(data.name); 
+      
 
 	});
 
