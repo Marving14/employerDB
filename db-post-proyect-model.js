@@ -8,17 +8,16 @@ let postSchema = mongoose.Schema({
 	name: { type: String},
 	size: {type: String},
 	description: { type: String},
-    author: { type: String},
-	publishDate: {type : Date}
+	identifier: {type: String}
 });
 
 
 
-let Post = mongoose.model( 'Post', postSchema );
+let projects = mongoose.model( 'projects', postSchema );
 
 let PostProyect = {
-	get : function(){
-		return Post.find()
+	getbyIdentifier: function(identifierS){
+		return projects.find({identifier: identifierS})
 				.then( posts => {
 					return posts;
 				})
@@ -26,26 +25,18 @@ let PostProyect = {
 					throw Error( error );
 				});
 	},
-	getbyA: function(authorS){
-		return Post.find({author: authorS})
-				.then( posts => {
-					return posts;
-				})
-				.catch( error => {
-					throw Error( error );
-				});
-	},
-	post : function( newPost ){
-		return Post.create( newPost )
+	postProject : function( newPost ){
+		return projects.create( newPost )
 				.then( post => {
 					return post;
 				})
 				.catch( error => {
 					throw Error(error);
 				});
-	},
+	}
+	/*
 	del : function( iD ){
-		return Post.deleteOne( {id: iD} )
+		return projects.deleteOne( {identifier: iD} )
 				.then( mess => {
 					return mess;
 				})
@@ -54,7 +45,7 @@ let PostProyect = {
 				});
 	},
 	update: function( nPost ){
-		return Post.updateOne( {id: nPost.id}, nPost)
+		return projects.updateOne( {id: nPost.id}, nPost)
 				.then( posts => {
 					return posts;
 				})
@@ -62,5 +53,6 @@ let PostProyect = {
 					throw Error(error);
 				});
 	}
+	*/
 };
 module.exports = { PostProyect };

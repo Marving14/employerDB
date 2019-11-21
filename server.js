@@ -3,7 +3,7 @@ let morgan = require('morgan');
 let bodyParser = require('body-parser');
 let moment = require('moment');
 const uuidv4 = require('uuid/v4');
-let { PostProyect } = require('./db-post-proyect-model');
+let { PostProyect } = require('./db-post-proyect-model.js');
 let {LoginEmployer } = require('./db-login-register-model.js'); 
 let {CreatePerson } = require('./db-create-person-model.js');
 // PostList  -> turned PostProyect
@@ -152,6 +152,66 @@ app.get('/employerDB/busqueda-persona/:email',(req, res, next) => {
     });
 });
 
+///////////////////////////////////////////////////////////
+// CREATE PROJECT 
+
+app.post('/employerDB/create-project', jsonParser, (req, res, next)=>{
+    if(req.body.name && req.body.size && req.body.description && req.body.identifier){
+        let nUser = req.body;
+        nUser.id = uuidv4();
+        PostProyect.postProject(nUser).then(post => {
+            return res.status(201).json({
+                message : "Project registered",
+                status : 201,
+                post : post
+            });
+        }).catch( error => {
+            res.statusMessage = "Something went wrong with the DB. Try again later.";
+            return res.status( 500 ).json({
+                status : 500,
+                message : "Something went wrong with the DB. Try again later."
+            })
+        });
+    }
+    else{
+        return res.status(406).json("Missing variables in body");
+    }
+});
+
+app.get('/employerDB/busqueda-proyecto/:identifier',(req, res, next) => {
+    PostProyect.getbyIdentifier(req.params.identifier).then(users => {
+        if(users.length == 0){
+            console.log(req.params.email);
+            console.log(users);
+            return res.status(404).json("User not found");
+        }
+        return res.status(200).json(users);
+    }).catch( error => {
+        res.statusMessage = "Something went wrong with the DB. Try again later.";
+        return res.status( 500 ).json({
+            status : 500,
+            message : "Something went wrong with the DB. Try again later."
+        })
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////
 
 /*
 app.get('/api/db-project',(req, res, next) => {

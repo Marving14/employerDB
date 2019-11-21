@@ -1,5 +1,6 @@
 function watchForm(){
   let submitButtonPerson = document.getElementById( "submitButtonPerson" );
+  let submitButtonProject = document.getElementById( "submitButtonProject" );
 
   submitButtonPerson.addEventListener("click", ( event ) =>{
     event.preventDefault();
@@ -74,8 +75,7 @@ function watchForm(){
 	
 	///////////////////////////////////////////////////////////////////////
 	
-    if( emailPerson.value !="" && birthdayPerson.value != ""){
-		//  && skillsPerson.value && degreePerson.value &&  && agePerson.value && fullNamePerson.value
+    if( emailPerson.value !="" && birthdayPerson.value != "" && skillsPerson.value!="" && degreePerson.value!="" && fullNamePerson.value!="" && agePerson.value!="" ){
 			console.log("A"); 
 	let postD = $(".formElement");
 	console.log(postD); 
@@ -125,6 +125,97 @@ function watchForm(){
 	/////////////////////////////////////////////////
 
   });
+  
+  
+   submitButtonPerson.addEventListener("click", ( event ) =>{
+    event.preventDefault();
+		
+		// Validate the fullNameProject input
+		let fullNameProject = document.getElementById( "fullNameProject" );
+		let fullNameProjectErrorMessage = document.getElementById( "fullNameProjectErrorMessage" );
+
+		if ( fullNameProject.value === "" ){
+		  fullNameProjectErrorMessage.textContent = "Please provide your project's name";
+		}
+		else{
+		  fullNameProjectErrorMessage.textContent = "";
+		}
+		
+		// Validate the sizeProject input
+		let sizeProject = document.getElementById( "sizeProject" );
+		let sizeProjectErrorMessage = document.getElementById( "sizeProjectErrorMessage" );
+
+		if ( sizeProject.value === "" ){
+		  sizeProjectErrorMessage.textContent = "Please provide your project's size ";
+		}
+		else{
+		  sizeProjectErrorMessage.textContent = "";
+		}
+		
+		// Validate the descriptionProject input
+		let descriptionProject = document.getElementById( "descriptionProject" );
+		let descriptionProjectErrorMessage = document.getElementById( "descriptionProjectErrorMessage" );
+
+		if ( descriptionProject.value === "" ){
+		  descriptionProjectErrorMessage.textContent = "Please provide your project's description ";
+		}
+		else{
+		  descriptionProjectErrorMessage.textContent = "";
+		}
+		
+		
+		
+    if( descriptionProject.value!="" && sizeProject.value!="" && fullNameProject.value!="" ){
+			console.log("A"); 
+	let postD = $(".formElement");
+	console.log(postD); 
+	
+	
+    let body = {}; 
+      body.name = postD[0].value;
+	  body.age = postD[1].value;
+	  body.birthday = postD[2].value;
+	  body.degree = postD[3].value;
+      body.email = postD[4].value;
+	  body.skills = postD[5].value;
+      
+      event.preventDefault();
+	  
+      // Ajax call for when 
+      $.ajax({
+        type: 'GET',
+        url: '/employerDB/busqueda-persona/' +$('#emailPerson').val()
+      }).done(function(data){
+        console.log(data);
+        // Mail ya existe en BD
+        alert("Email already exists, person is probably already in database");
+      }).fail(function(data){
+        // Mail es nuevo y se registrara en BD
+          $.ajax({
+            type: 'POST',
+            url: '/employerDB/create-person ',
+            contentType: "application/json",
+            data: JSON.stringify(body)
+          }).done(function(data){
+            console.log(data);
+
+          }).fail(function(err){
+            alert(err.responseText); 
+          });
+
+          alert("Person created"); 
+      });
+	
+	
+		
+	}
+		
+		
+		
+	
+   });
+  
+  
 
   // Functionality for the navigation menu
   let menuItems = document.getElementsByTagName( "li" );
