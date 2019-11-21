@@ -132,7 +132,7 @@ function watchForm(){
   
    submitButtonProject.addEventListener("click", ( event ) =>{
     event.preventDefault();
-	
+		console.log("entra"); 
 	
 		
 		// Validate the IdentifierProject input
