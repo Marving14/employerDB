@@ -132,7 +132,7 @@ function watchForm(){
   
    submitButtonProject.addEventListener("click", ( event ) =>{
     event.preventDefault();
-		console.log("entra"); 
+		console.log("entra Submit project"); 
 	
 		
 		// Validate the IdentifierProject input
@@ -181,10 +181,9 @@ function watchForm(){
 		}
 		
 		
-		
     if( IdentifierProject.value!="" && descriptionProject.value!="" && sizeProject.value!="" && fullNameProject.value!="" ){
-			console.log("A"); 
-	let postD = $(".formElement");
+			console.log("project A"); 
+	let postD = $(".formElementProject");
 	console.log(postD); 
 	
 	
