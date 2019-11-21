@@ -130,7 +130,7 @@ function watchForm(){
   });
   
   
-   submitButtonPerson.addEventListener("click", ( event ) =>{
+   submitButtonProject.addEventListener("click", ( event ) =>{
     event.preventDefault();
 	
 	
