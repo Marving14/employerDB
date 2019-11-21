@@ -160,7 +160,7 @@ app.get('/employerDB/busqueda-proyecto/:identifier',(req, res, next) => {
 });
 
 // put project
-app.put('/employerDB/update-person/:identifier', jsonParser, (req, res, next)=>{
+app.put('/employerDB/update-project/:identifier', jsonParser, (req, res, next)=>{
     if(req.body.identifier){
         let post = req.body;
         if(post.identifier != req.params.identifier)
