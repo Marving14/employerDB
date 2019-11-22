@@ -528,9 +528,9 @@ function loadPersonsInSearch(){
 	}).done(function(data){
 		for(let i=0; i<data.length; i++){
 			$('#oPersons').append(
-			"<div class='card'><div class='card-header'>"+"Id: " +JSON.stringify(data[i].identifier) +"</div><div class="+"card-body"+">" + 
+			"<div class='card'><div class='card-header'>"+"Id: " +JSON.stringify(data[i].email) +"</div><div class="+"card-body"+">" + 
 			"<h5 class="+"card-title"+">" + JSON.stringify(data[i].name) + "</h5>"+
-			"<p class="+"card-text"+">" + JSON.stringify(data[i].description) +"</p>"+
+			"<p class="+"card-text"+">" + JSON.stringify(data[i].skills) +"</p>"+
 			"</div></div><br>");
 		}
 	});
