@@ -197,10 +197,9 @@ app.put('/employerDB/update-project/:identifier', jsonParser, (req, res, next)=>
 // Update one project Follow
 app.put('/employerDB/update-projectFollow/:identifier/:email', jsonParser, (req, res, next)=>{
     if(req.params.identifier){
-        let post = req.body;
-        LoginEmployer.updateArray(post).then(posts => {
-            return res.status(202).json(posts);
-        }).catch( error => {
+        LoginEmployer.updateArray(req.params.identifier, req.params.email).then(posts => {
+        return res.status(202).json(posts);
+    }).catch( error => {
             res.statusMessage = "Something went wrong with the DB. Try again later.";
             return res.status( 500 ).json({
                 status : 500,
