@@ -426,9 +426,10 @@ function watchForm(){
             alert("Missing identifier !");
         }
         else{
+			console.log(userLogged.email);
             $.ajax({
                 type : 'PUT',
-                url: '/employerDB/update-projectFollow/'+ postD.val()
+                url: '/employerDB/update-projectFollow/'+ postD.val()+'/'+userLogged.email
             }).done(function(data){
                 console.log(data);
 				alert("Project Followed from DB");
