@@ -412,14 +412,14 @@ function watchForm(){
    }); 
     // End Submit btn delete Person
    
-    // Submit btn delete Project
-	let DeleteProject = document.getElementById( "submitButtonDeleteProject" );
+    // Submit btn Follow Project
+	let FollowProject = document.getElementById( "submitButtonFollowPerson" );
    
-	DeleteProject.addEventListener("click", ( event ) =>{
+	FollowProject.addEventListener("click", ( event ) =>{
 		event.preventDefault();
-		console.log("entra a DeleteProject  "); 
+		console.log("entra a FollowProject  "); 
 	
-		let postD = $("#itemToDeleteProject");
+		let postD = $("#identifierToFollow");
         console.log(postD.val()); 
 		
 		if( postD.val() == ""){
@@ -427,21 +427,21 @@ function watchForm(){
         }
         else{
             $.ajax({
-                type : 'DELETE',
-                url: '/employerDB/delete-project/'+ postD.val()
+                type : 'PUT',
+                url: '/employerDB/update-projectFollow/'+ postD.val()
             }).done(function(data){
                 console.log(data);
-				alert("Project deleted from DB");
+				alert("Project Followed from DB");
 				
                // Set fields to blank
-			  $("#itemToDeleteProject").val(""); 
+			  $("#identifierToFollow").val(""); 
 			   
             }).fail(function(msg){
                 alert(msg.responseText);
             });
         }
    }); 
-	// End Submit btn delete Project
+	// End Submit btn Follow Project
 	
 	
   
