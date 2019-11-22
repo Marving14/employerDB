@@ -198,8 +198,6 @@ app.put('/employerDB/update-project/:identifier', jsonParser, (req, res, next)=>
 app.put('/employerDB/update-projectFollow/:identifier/:email', jsonParser, (req, res, next)=>{
     if(req.params.identifier){
         let post = req.body;
-        if(post.identifier != req.params.identifier)
-            return res.status(409).json("emails don't match");
         LoginEmployer.updateArray(post).then(posts => {
             return res.status(202).json(posts);
         }).catch( error => {

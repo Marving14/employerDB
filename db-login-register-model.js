@@ -35,7 +35,7 @@ let LoginEmployer = {
 					throw Error(err);
 				}); 
 	},
-	updateArray: function( emailU, identifierU ){
+	updateArray: function(identifierU , emailU){
 		return Register.update( {email: emailU}, {$push: {listProjects: identifierU}})
 				.then( posts => {
 					return posts;
