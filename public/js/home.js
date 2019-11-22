@@ -481,6 +481,8 @@ function loadProjectsInHome(){
 	$('#followedProjects').html("");
 	console.log(userParsed.email);
 	
+	$('#followedProjects').append("<p>holaaa</p>");
+	
 	$.ajax({
 		type: 'GET',
 		url: '/employerDB/busqueda-proyectosHome/'+ userParsed.email
