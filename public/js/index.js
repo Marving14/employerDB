@@ -82,13 +82,17 @@ function watchForm(){
             data: JSON.stringify(body)
           }).done(function(data){
             console.log(data);
-
+			// Set to localStorage
+			localStorage.setItem('user',JSON.stringify(body));
+			
+			 alert("Register Successfully"); 
+			parent.open("./home.html", "_self");   
+			
           }).fail(function(err){
             alert(err.responseText); 
           });
 
-          alert("Register Successfully"); 
-          parent.open("./home.html", "_self");        
+              
       });
     }
   });    
