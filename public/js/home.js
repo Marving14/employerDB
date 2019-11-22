@@ -395,7 +395,7 @@ function loadProjectsInSearch(){
 			$('#searchSection').append("<div class='card'><div class='card-header'>Projects in DB</div><div class="+"card-body"+">" + 
 			"<h5 class="+"card-title"+">" + JSON.stringify(data[i].name) + "</h5>"+
 			"<p class="+"card-text"+">" + JSON.stringify(data[i].description) +"</p>"+
-			"<a href="+"#"+" class="+"btn btn-primary"+">" + 'Follow' +"</a></div></div>");
+			"<input class="+"'btnPrimary'"+"type="+"'submit'"+"value="+"'Follow'"+"</div></div><br>");
 		}
 	});
 }
