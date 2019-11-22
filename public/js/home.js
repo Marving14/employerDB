@@ -260,18 +260,15 @@ function watchForm(){
 	  
 	});
 	
-	////////////////////////////////////////////////////////
+	
 	//// UPDATE PROJECT 
+	// Search button for project by email 
 	let UpdateProject = document.getElementById( "submitButtonSearchUpdateProject" );
 	let submitButtonProjectUpdate = document.getElementById("submitButtonProjectUpdate");
-
-	///// PRIMER AJAX 
 	UpdateProject.addEventListener("click", ( event ) =>{
     event.preventDefault();
     console.log("entra a Search Update PROJECT "); 
-
-
-     // Ajax call for when 
+    // Ajax call for when user click btn search 
       $.ajax({
         type: 'GET',
         url: '/employerDB/busqueda-proyecto/' +$('#itemToAddProject').val()
@@ -283,46 +280,46 @@ function watchForm(){
 		 $('#sizeProjectUpdate').val(data[0].size);
 		 $('#descriptionProjectUpdate').val(data[0].description);	 		 
         // Mail encontrado  existe en BD
+	
 	  }).fail(function(err){
+		  
             alert(err.responseText); 
 	  }); 
 	  
 	});
 	
+	// Submit Update Project Button
 	// SEGUNDO AJAX 
-		submitButtonProjectUpdate.addEventListener("click", ( event ) =>{
-		event.preventDefault();
-		  console.log("entra a submitButtonProjectUpdate  "); 
-		  
-			 let postD = $(".formElementProjectUpdate");
-			console.log(postD); 
-		  
-		  
-			let body = {}; 
-			  body.identifier = postD[0].value;
-			body.name = postD[1].value;
-			body.size = postD[2].value;
-			body.description = postD[3].value;
+	submitButtonProjectUpdate.addEventListener("click", ( event ) =>{
+	event.preventDefault();
+	  console.log("entra a submitButtonProjectUpdate  "); 
+	  
+		 let postD = $(".formElementProjectUpdate");
+		console.log(postD); 
+		let body = {}; 
+		  body.identifier = postD[0].value;
+		body.name = postD[1].value;
+		body.size = postD[2].value;
+		body.description = postD[3].value;
 
-			 $.ajax({
-				type:'PUT',
-				url:'/employerDB/update-project/'+body.identifier,
-				contentType: "application/json",
-				data: JSON.stringify(body)
-			}).done(function(data){
-				console.log(data);
-			   // loadList();
-			   alert("Project data updated");
-			}).fail(function(msg){
-				alert(msg.responseText);
-			});
-		  }); 
-
+		 $.ajax({
+			type:'PUT',
+			url:'/employerDB/update-project/'+body.identifier,
+			contentType: "application/json",
+			data: JSON.stringify(body)
+		}).done(function(data){
+			console.log(data);
+		   // loadList();
+		   alert("Project data updated");
+		}).fail(function(msg){
+			alert(msg.responseText);
+		});
+	}); 
+	// End Submit Update Project Button
 	
 
 
-    ///////////////////////////////////////////////////////
-
+    // Submit Update Person Button
     submitButtonPersonUpdate.addEventListener("click", ( event ) =>{
       event.preventDefault();
       console.log("entra a submitButtonPersonUpdate  "); 
@@ -353,8 +350,7 @@ function watchForm(){
         });
       }); 
 
-   ////////////////////////////////////////////////////////////////////////
-  
+   // End Submit Update Person Button
 	
 
   // Functionality for the navigation menu
@@ -382,6 +378,8 @@ function watchForm(){
       selectedSection.className = "currentSelected";
     });
   }
+  // End functionality navigation part 
+  
 }
 
 

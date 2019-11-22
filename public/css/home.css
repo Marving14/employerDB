@@ -98,7 +98,7 @@ select{
 .btnPrimary{
 	background-color: blue;
 	color: white;
-	font-size: bold; 
+	border: none; 
 }
 
 #menu{
