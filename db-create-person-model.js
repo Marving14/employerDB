@@ -43,10 +43,9 @@ let CreatePerson = {
 				.catch( error => {
 					throw Error(error);
 				});
-	}
-/*
-	del : function( iD ){
-		return Post.deleteOne( {id: iD} )
+	},
+	deletePerson : function( userMail ){
+		return persons.deleteOne( {email: userMail} )
 				.then( mess => {
 					return mess;
 				})
@@ -54,8 +53,6 @@ let CreatePerson = {
 					throw Error(error);
 				});
 	},
-	
-	*/
 };
 
 module.exports = {CreatePerson }; 

@@ -264,6 +264,20 @@ app.put('/employerDB/update-person/:email', jsonParser, (req, res, next)=>{
     }
 });
 
+// Delete one person 
+app.delete('/employerDB/update-person/:email', (req, res, next)=>{
+    PostProyect.deletePerson(req.params.email).then(mess => {
+        // Case when person is found and deleted
+                 
+        return res.status(200).json("Success! person deleted");
+    }).catch( error => {
+        res.statusMessage = "Something went wrong with the DB. Try again later.";
+        return res.status( 500 ).json({
+            status : 500,
+            message : "Something went wrong with the DB. Try again later."
+        })
+    });
+});
 
 
 
