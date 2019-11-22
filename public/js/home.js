@@ -486,7 +486,7 @@ function loadProjectsInHome(){
 	}).done(function(data){
 		console.log(data); 
 		console.log(data[0]);
-		console.log(data[0].listProjects.length()); 
+		console.log(data[0].listProjects.length); 
 		
 		// por cada identifier.. 
 		for(let i=0; i<data[0].listProjects.length(); i++){
