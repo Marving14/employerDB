@@ -486,8 +486,7 @@ function loadProjectsInHome(){
 	}).done(function(data){
 		console.log(data); 
 		// por cada identifier.. 
-		for(let i=0; i<data.listProjects.length; i++){
-			
+		for(let i=0; i<data[0].listProjects.length; i++){
 			// ajax filter by identifier
 				
 			$.ajax({
