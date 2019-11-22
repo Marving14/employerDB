@@ -503,13 +503,5 @@ function loadProjectsInHome(){
 }
 // End Function to load HOME section
 
-/*
-
- 
-					 
-
-
-*/
-
 
 watchForm();
