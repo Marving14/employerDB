@@ -480,7 +480,7 @@ function loadProjectsInSearch(){
 			"<div class='card'><div class='card-header'>"+"Id: " +JSON.stringify(data[i].identifier) +"</div><div class="+"card-body"+">" + 
 			"<h5 class="+"card-title"+">" + JSON.stringify(data[i].name) + "</h5>"+
 			"<p class="+"card-text"+">" + JSON.stringify(data[i].description) +"</p>"+
-			"<input class="+"'btnPrimary'"+"type="+"'submit'"+"value="+"'Follow'"+"></div></div><br>");
+			"</div></div><br>");
 		}
 	});
 }
