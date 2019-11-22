@@ -1,6 +1,7 @@
 function watchForm(){
 	loadProjectsInSearch(); 
 	loadProjectsInHome();
+	loadPersonsInSearch();
 	
 	let userLogged= localStorage.getItem('user');
 	console.log('userLogged: ', JSON.parse(userLogged));
@@ -116,6 +117,8 @@ function watchForm(){
           }).done(function(data){
             console.log(data);
 			 alert("Person created");
+			 
+			 loadPersonsInSearch();
 			 
 			 // SET FIELDS TO EMPTY
 			 fullNamePerson.value = ""; 
