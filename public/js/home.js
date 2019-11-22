@@ -388,14 +388,15 @@ function watchForm(){
 		console.log("entra a DeletePerson  "); 
 	
 		let postD = $("#itemToDeletePerson");
-        
+        console.log(postD); 
+		
 		if( postD.val() == ""){
             alert("Missing email!");
         }
         else{
             $.ajax({
                 type : 'DELETE',
-                url: '/employerDB/delete-person/:email'+postD.val()
+                url: '/employerDB/delete-person/'+postD.val()
             }).done(function(data){
                 console.log(data);
 				alert("PErson deleted from DB");
