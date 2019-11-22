@@ -494,11 +494,8 @@ function loadProjectsInHome(){
 			"<p class="+"card-text"+">" + JSON.stringify(data[i].description) +"</p></div></div><br>");
 
 			}).fail(function(data){
-				 
-					  
+					  alert(data.responseText); 
 			});
-							
-		
 		}
 	});
 }
