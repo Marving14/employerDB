@@ -497,7 +497,7 @@ function loadProjectsInHome(){
 		for(let i=0; i<a; i++){
 			// ajax filter by identifier
 				console.log(data[0].listProjects[i]);
-				/*	
+				
 			$.ajax({
 				type: 'GET',
 				url: '/employerDB/busqueda-proyecto/' +data[0].listProjects[i]
@@ -513,7 +513,7 @@ function loadProjectsInHome(){
 			}).fail(function(data){
 					  alert(data.responseText); 
 			});
-			*/
+			
 		}
 		
 	});
