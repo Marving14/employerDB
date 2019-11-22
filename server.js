@@ -170,8 +170,8 @@ app.get('/employerDB/busqueda-proyectos',(req, res, next) => {
 // End get all projects search section
 
 // Get one project home section
-app.get('/employerDB/busqueda-proyectosHome',(req, res, next) => {
-    LoginEmployer.getbyIdentifier().then(users => {
+app.get('/employerDB/busqueda-proyectosHome/:email',(req, res, next) => {
+	LoginEmployer.getbyMail(req.params.email).then(users => {
         return res.status(200).json(users);
     }).catch( error => {
         res.statusMessage = "Something went wrong with the DB. Try again later.";

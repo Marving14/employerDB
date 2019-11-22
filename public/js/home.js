@@ -475,8 +475,9 @@ function loadProjectsInHome(){
 	$('#followedProjects').html("");
 	$.ajax({
 		type: 'GET',
-		url: '/employerDB/busqueda-proyectosHome'
+		url: '/employerDB/busqueda-proyectosHome/'+ userParsed.email
 	}).done(function(data){
+		console.log(data); 
 		// por cada identifier.. 
 		for(let i=0; i<data.listProjects.length; i++){
 			
