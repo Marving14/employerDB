@@ -113,8 +113,11 @@ function watchForm(){
 			 
 			 // SET FIELDS TO EMPTY
 			 fullNamePerson.value = ""; 
-			 
-			 
+			 agePerson.value = ""; 
+			 birthdayPerson.value = ""; 
+			 degreePerson.value = ""; 
+			 emailPerson.value = ""; 
+			 skillsPerson.value = ""; 
           }).fail(function(err){
             alert(err.responseText); 
           });
@@ -220,15 +223,17 @@ function watchForm(){
 		
 	}	
 	
-   });
+   }); // END CREATE PROJECT 
 
 
+	// START SEARCH PERSON BY EMAIL 
    ////////////////////////////////////////////////////////////////////////
 
    let SearchUpdatePerson = document.getElementById( "submitButtonSearchUpdatePerson" );
    let submitButtonPersonUpdate = document.getElementById("submitButtonPersonUpdate");
 
-
+	
+	// 
    SearchUpdatePerson.addEventListener("click", ( event ) =>{
     event.preventDefault();
     console.log("entra a Search Update Person "); 
