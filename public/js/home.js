@@ -436,11 +436,11 @@ function watchForm(){
 	
 	
 // Submit btn delete Project
-   let DeletePerson = document.getElementById( "submitButtonDeleteProject" );
+   let DeleteProject = document.getElementById( "submitButtonDeleteProject" );
    
-   DeletePerson.addEventListener("click", ( event ) =>{
+   DeleteProject.addEventListener("click", ( event ) =>{
 		event.preventDefault();
-		console.log("entra a DeletePerson  "); 
+		console.log("entra a DeleteProject  "); 
 	
 		let postD = $("#itemToDeleteProject");
         console.log(postD.val()); 
