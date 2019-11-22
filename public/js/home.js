@@ -494,7 +494,7 @@ function loadProjectsInHome(){
 				
 			$.ajax({
 				type: 'GET',
-				url: '/employerDB/busqueda-proyecto/' +data.listProjects[i]
+				url: '/employerDB/busqueda-proyecto/' +data.listProjects[i].identifier
 			}).done(function(data){
 				// Devuelve objeto completo de projects
 				$('#followedProjects').append(
