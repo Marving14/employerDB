@@ -26,6 +26,15 @@ let CreatePerson = {
 					throw Error(err);
 				}); 
 	},
+	getPersons: function(){
+		return persons.find()
+				.then(pros =>{
+					return pros; 
+				})
+				.catch( error => {
+					throw Error(error); 
+				})
+	},
 	postPerson : function(newUser){
 		return persons.create( newUser)
 				.then(users => {
