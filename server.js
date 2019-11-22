@@ -171,15 +171,20 @@ app.get('/employerDB/busqueda-proyectos',(req, res, next) => {
 
 // Get one project home section
 app.get('/employerDB/busqueda-proyectosHome/:email',(req, res, next) => {
-	LoginEmployer.getbyMail(req.params.email).then(users => {
-        return res.status(200).json(users);
-    }).catch( error => {
-        res.statusMessage = "Something went wrong with the DB. Try again later.";
-        return res.status( 500 ).json({
-            status : 500,
-            message : "Something went wrong with the DB. Try again later."
-        })
-    });
+	if(req.params.email){
+		LoginEmployer.getbyMail(req.params.email).then(users => {
+			return res.status(200).json(users);
+		}).catch( error => {
+			res.statusMessage = "Something went wrong with the DB. Try again later.";
+			return res.status( 500 ).json({
+				status : 500,
+				message : "Something went wrong with the DB. Try again later."
+			})
+		});
+	}
+	else{
+		 return res.status(406).json("Missing email");
+	}
 });
 // End get all projects home section
 

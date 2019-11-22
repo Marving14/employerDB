@@ -472,6 +472,11 @@ function loadProjectsInSearch(){
 
 // Function to load HOME section
 function loadProjectsInHome(){
+	let userLogged= localStorage.getItem('user');
+	console.log('userLogged: ', JSON.parse(userLogged));
+	let userParsed = JSON.parse(userLogged);
+	
+	
 	$('#followedProjects').html("");
 	console.log(userParsed.email);
 	
