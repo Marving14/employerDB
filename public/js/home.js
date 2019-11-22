@@ -449,13 +449,13 @@ function watchForm(){
 
 
 function loadProjectsInSearch(){
-	$('#searchSection').html("");
+	$('#searchAll').html("");
 	$.ajax({
 		type: 'GET',
 		url: '/employerDB/busqueda-proyectos'
 	}).done(function(data){
 		for(let i=0; i<data.length; i++){
-			$('#searchSection').append(
+			$('#searchAll').append(
 			"<div class='card'><div class='card-header'>"+"Id: " +JSON.stringify(data[i].identifier) +"</div><div class="+"card-body"+">" + 
 			"<h5 class="+"card-title"+">" + JSON.stringify(data[i].name) + "</h5>"+
 			"<p class="+"card-text"+">" + JSON.stringify(data[i].description) +"</p>"+
