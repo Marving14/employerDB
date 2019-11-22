@@ -504,7 +504,7 @@ function loadProjectsInHome(){
 			}).done(function(data){
 				// Devuelve objeto completo de projects
 					console.log(data); 		
-					console.log(JSON.stringify(data[i].identifier);
+					console.log(JSON.stringify(data[i].identifier));
 					
 				$('.followedProjects').append("<div class='card'><div class='card-header'>"+"Id: " +JSON.stringify(data[i].identifier) +"</div><div class="+"card-body"+">" + 
 			"<h5 class="+"card-title"+">" + JSON.stringify(data[i].name) + "</h5>"+
