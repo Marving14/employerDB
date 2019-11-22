@@ -481,8 +481,6 @@ function loadProjectsInHome(){
 	$('#followedProjects').html("");
 	console.log(userParsed.email);
 	
-	$('#followedProjects').append("<p>holaaa</p>");
-	
 	$.ajax({
 		type: 'GET',
 		url: '/employerDB/busqueda-proyectosHome/'+ userParsed.email
@@ -500,9 +498,7 @@ function loadProjectsInHome(){
 				url: '/employerDB/busqueda-proyecto/' +data[0].listProjects[i]
 			}).done(function(data){
 				// Devuelve objeto completo de projects
-					console.log(data); 
-					$('#followedProjects').append("<p>holaaa</p>");
-					
+					console.log(data); 		
 				$('#followedProjects').append("<div class='card'><div class='card-header'>"+"Id: " +JSON.stringify(data[i].identifier) +"</div><div class="+"card-body"+">" + 
 			"<h5 class="+"card-title"+">" + JSON.stringify(data[i].name) + "</h5>"+
 			"<p class="+"card-text"+">" + JSON.stringify(data[i].description) +"</p></div></div><br>");
