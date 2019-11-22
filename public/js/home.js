@@ -458,7 +458,8 @@ function watchForm(){
 				
                // Set fields to blank
 			   $("#itemToDeleteProject").val(""); 
-			   
+			   loadProjectsInHome();
+			   loadProjectsInSearch();
             }).fail(function(msg){
                 alert(msg.responseText);
             });
