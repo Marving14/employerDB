@@ -433,7 +433,7 @@ function watchForm(){
 				alert("Project deleted from DB");
 				
                // Set fields to blank
-			   postD.val()= "";
+			   postD.val("");
 			   
             }).fail(function(msg){
                 alert(msg.responseText);
