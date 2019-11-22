@@ -511,7 +511,7 @@ function loadProjectsInHome(){
 					  alert(data.responseText); 
 			});
 		}
-		loadProjectsInHome();
+		
 	});
 }
 // End Function to load HOME section
