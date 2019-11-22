@@ -506,9 +506,9 @@ function loadProjectsInHome(){
 					console.log(data); 		
 					console.log(JSON.stringify(data[0].identifier));
 					
-				$('.followedProjects').append("<div class='card'><div class='card-header'>"+"Id: " +JSON.stringify(data[i].identifier) +"</div><div class="+"card-body"+">" + 
-			"<h5 class="+"card-title"+">" + JSON.stringify(data[i].name) + "</h5>"+
-			"<p class="+"card-text"+">" + JSON.stringify(data[i].description) +"</p></div></div><br>");
+				$('.followedProjects').append("<div class='card'><div class='card-header'>"+"Id: " +JSON.stringify(data[0].identifier) +"</div><div class="+"card-body"+">" + 
+			"<h5 class="+"card-title"+">" + JSON.stringify(data[0].name) + "</h5>"+
+			"<p class="+"card-text"+">" + JSON.stringify(data[0].description) +"</p></div></div><br>");
 	
 			}).fail(function(data){
 					  alert(data.responseText); 
