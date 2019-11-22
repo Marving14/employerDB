@@ -326,10 +326,7 @@ function watchForm(){
 		 $('#fullNameProjectUpdate').val("");
 		 $('#sizeProjectUpdate').val("");
 		 $('#descriptionProjectUpdate').val("");	 	
-		   
-		   
-		   
-		   
+		   		   
 		}).fail(function(msg){
 			alert(msg.responseText);
 		});
