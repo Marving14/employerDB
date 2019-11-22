@@ -220,7 +220,13 @@ function watchForm(){
 				console.log(data);
 					loadProjectsInSearch(); 
 					alert("Project created"); 
-					IdentifierProject.value = ""
+					IdentifierProject.value = "";
+					fullNameProject.value = "";
+					sizeProject.value = "";
+					descriptionProject.value = "";
+					
+					
+					
 			  }).fail(function(err){
 				alert(err.responseText); 
 			  });
