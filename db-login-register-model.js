@@ -7,7 +7,10 @@ let userSchema = mongoose.Schema({
 		required : true },
 	name: { type: String},
 	email: {type: String},
-	password: {type: String}
+	password: {type: String},
+	listProjects: [
+		{ type: String} 
+	]
 });
 
 

@@ -397,10 +397,10 @@ function watchForm(){
                 url: '/employerDB/delete-person/'+ postD.val()
             }).done(function(data){
                 console.log(data);
-				alert("PErson deleted from DB");
+				alert("Person deleted from DB");
 				
                // Set fields to blank
-			   postD.val()= "";
+			   $("#itemToDeletePerson").val(""); 
 			   
             }).fail(function(msg){
                 alert(msg.responseText);
@@ -439,6 +439,8 @@ function watchForm(){
         }
    }); 
 	// End Submit btn delete Project
+	
+	
   
 }
 
