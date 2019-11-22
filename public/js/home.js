@@ -186,46 +186,47 @@ function watchForm(){
 		}
 		
 		
-    if( IdentifierProject.value!="" && descriptionProject.value!="" && sizeProject.value!="" && fullNameProject.value!="" ){
-			console.log("project A"); 
-	let postD = $(".formElementProject");
-	console.log(postD); 
-	
-	
-    let body = {}; 
-      body.identifier = postD[0].value;
-	  body.name = postD[1].value;
-	  body.size = postD[2].value;
-	  body.description = postD[3].value;
-     
-      
-      event.preventDefault();
-	  
-      // Ajax call for when 
-      $.ajax({
-        type: 'GET',
-        url: '/employerDB/busqueda-proyecto/' +$('#IdentifierProject').val()
-      }).done(function(data){
-        console.log(data);
-        // Identifier ya existe en BD
-        alert("Identifier already exists, use a different id");
-      }).fail(function(data){
-        // identifier es nuevo y se registrara en BD
-          $.ajax({
-            type: 'POST',
-            url: '/employerDB/create-project',
-            contentType: "application/json",
-            data: JSON.stringify(body)
-          }).done(function(data){
-            console.log(data);
-				loadProjectsInSearch(); 
-				alert("Project created"); 
-          }).fail(function(err){
-            alert(err.responseText); 
-          });
+		if( IdentifierProject.value!="" && descriptionProject.value!="" && sizeProject.value!="" && fullNameProject.value!="" ){
+				console.log("project A"); 
+		let postD = $(".formElementProject");
+		console.log(postD); 
+		
+		
+		let body = {}; 
+		  body.identifier = postD[0].value;
+		  body.name = postD[1].value;
+		  body.size = postD[2].value;
+		  body.description = postD[3].value;
+		 
+		  
+		  event.preventDefault();
+		  
+		  // Ajax call for when 
+		  $.ajax({
+			type: 'GET',
+			url: '/employerDB/busqueda-proyecto/' +$('#IdentifierProject').val()
+		  }).done(function(data){
+			console.log(data);
+			// Identifier ya existe en BD
+			alert("Identifier already exists, use a different id");
+		  }).fail(function(data){
+			// identifier es nuevo y se registrara en BD
+			  $.ajax({
+				type: 'POST',
+				url: '/employerDB/create-project',
+				contentType: "application/json",
+				data: JSON.stringify(body)
+			  }).done(function(data){
+				console.log(data);
+					loadProjectsInSearch(); 
+					alert("Project created"); 
+					IdentifierProject.value = ""
+			  }).fail(function(err){
+				alert(err.responseText); 
+			  });
 
-          
-      });
+			  
+		  });
 		
 	}	
 	
