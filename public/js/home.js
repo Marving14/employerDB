@@ -547,7 +547,7 @@ function loadProjectsInHome(){
 	console.log('userLogged: ', JSON.parse(userLogged));
 	let userParsed = JSON.parse(userLogged);
 	
-	
+	console.log(userParsed); 
 	$('.followedProjects').html("");
 	console.log(userParsed.email);
 	
