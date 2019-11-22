@@ -497,12 +497,15 @@ function loadProjectsInHome(){
 		for(let i=0; i<a; i++){
 			// ajax filter by identifier
 				console.log(data[0].listProjects[i]);
+				/*	
 			$.ajax({
 				type: 'GET',
 				url: '/employerDB/busqueda-proyecto/' +data[0].listProjects[i]
 			}).done(function(data){
 				// Devuelve objeto completo de projects
 					console.log(data); 		
+					console.log(JSON.stringify(data[i].identifier);
+					
 				$('.followedProjects').append("<div class='card'><div class='card-header'>"+"Id: " +JSON.stringify(data[i].identifier) +"</div><div class="+"card-body"+">" + 
 			"<h5 class="+"card-title"+">" + JSON.stringify(data[i].name) + "</h5>"+
 			"<p class="+"card-text"+">" + JSON.stringify(data[i].description) +"</p></div></div><br>");
@@ -510,6 +513,7 @@ function loadProjectsInHome(){
 			}).fail(function(data){
 					  alert(data.responseText); 
 			});
+			*/
 		}
 		
 	});
