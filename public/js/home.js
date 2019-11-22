@@ -379,6 +379,36 @@ function watchForm(){
   }
   // End functionality navigation part 
   
+  
+  // Submit btn delete Person
+   let DeletePerson = document.getElementById( "submitButtonDeletePerson" );
+   
+   DeletePerson.addEventListener("click", ( event ) =>{
+		event.preventDefault();
+		console.log("entra a DeletePerson  "); 
+	
+		let postD = $("#itemToDeletePerson");
+        
+		if( postD.val() == ""){
+            alert("Missing email!");
+        }
+        else{
+            $.ajax({
+                type : 'DELETE',
+                url: '/employerDB/delete-person/:email'+postD.val()
+            }).done(function(data){
+                console.log(data);
+				alert("PErson deleted from DB");
+               //
+            }).fail(function(msg){
+                alert(msg.responseText);
+            });
+        }
+		
+		
+	
+   }); 
+  
 }
 
 
