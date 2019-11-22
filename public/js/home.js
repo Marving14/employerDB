@@ -110,6 +110,11 @@ function watchForm(){
           }).done(function(data){
             console.log(data);
 			 alert("Person created");
+			 
+			 // SET FIELDS TO EMPTY
+			 fullNamePerson.value = ""; 
+			 
+			 
           }).fail(function(err){
             alert(err.responseText); 
           });
