@@ -484,7 +484,7 @@ function loadProjectsInHome(){
 		type: 'GET',
 		url: '/employerDB/busqueda-proyectosHome/'+ userParsed.email
 	}).done(function(data){
-		console.log(data.0); 
+		console.log(data); 
 		console.log(data[0]);
 		console.log(data[0].listProjects.length()); 
 		
