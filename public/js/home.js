@@ -549,7 +549,7 @@ function loadProjectsInHome(){
 	
 	console.log(userParsed); 
 	$('.followedProjects').html("");
-	console.log(userParsed.email);
+	console.log(userParsed);
 	
 	$.ajax({
 		type: 'GET',
