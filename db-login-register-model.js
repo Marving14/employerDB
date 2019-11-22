@@ -34,6 +34,15 @@ let LoginEmployer = {
 				.catch( err => {
 					throw Error(err);
 				}); 
+	},
+	updateArray: function( emailU, identifierU ){
+		return Register.update( {email: emailU}, {$push: {listProjects: identifierU}})
+				.then( posts => {
+					return posts;
+				})
+				.catch( error => {
+					throw Error(error);
+				});
 	}
 /*
 	del : function( iD ){

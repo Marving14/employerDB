@@ -127,7 +127,10 @@ function watchForm(){
         console.log(body.password_reg); 
         
         if(data[0].password === body.password_reg){
-
+			// Local Storage
+			localStorage.setItem('user',JSON.stringify(postD));
+			
+			
            parent.open("./home.html", "_self");   
         }else{
           alert("Wrong password");

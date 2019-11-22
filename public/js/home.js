@@ -1,6 +1,9 @@
 function watchForm(){
 	loadProjectsInSearch(); 
 	
+	let userLogged= localStorage.getItem('user');
+	console.log('userLogged: ', JSON.parse(userLogged));
+	
   let submitButtonPerson = document.getElementById( "submitButtonPerson" );
   let submitButtonProject = document.getElementById( "submitButtonProject" );
 
@@ -452,10 +455,11 @@ function loadProjectsInSearch(){
 		url: '/employerDB/busqueda-proyectos'
 	}).done(function(data){
 		for(let i=0; i<data.length; i++){
-			$('#searchSection').append("<div class='card'><div class='card-header'>Projects in DB</div><div class="+"card-body"+">" + 
+			$('#searchSection').append(
+			"<div class='card'><div class='card-header'>"+"Id: " +JSON.stringify(data[i].identifier) +"</div><div class="+"card-body"+">" + 
 			"<h5 class="+"card-title"+">" + JSON.stringify(data[i].name) + "</h5>"+
 			"<p class="+"card-text"+">" + JSON.stringify(data[i].description) +"</p>"+
-			"<input class="+"'btnPrimary'"+"type="+"'submit'"+"value="+"'Follow'"+"</div></div><br>");
+			"<input class="+"'btnPrimary'"+"type="+"'submit'"+"value="+"'Follow'"+"></div></div><br>");
 		}
 	});
 }
