@@ -1,5 +1,6 @@
 function watchForm(){
 	loadProjectsInSearch(); 
+	loadProjectsInHome();
 	
 	let userLogged= localStorage.getItem('user');
 	console.log('userLogged: ', JSON.parse(userLogged));
@@ -450,7 +451,7 @@ function watchForm(){
   
 }
 
-
+// Function to load Search section
 function loadProjectsInSearch(){
 	$('#searchAll').html("");
 	$.ajax({
@@ -466,5 +467,49 @@ function loadProjectsInSearch(){
 		}
 	});
 }
+// End Function to load Search section
+
+
+// Function to load HOME section
+function loadProjectsInHome(){
+	$('#followedProjects').html("");
+	$.ajax({
+		type: 'GET',
+		url: '/employerDB/busqueda-proyectosHome'
+	}).done(function(data){
+		// por cada identifier.. 
+		for(let i=0; i<data.listProjects.length; i++){
+			
+			// ajax filter by identifier
+				
+			$.ajax({
+				type: 'GET',
+				url: '/employerDB/busqueda-proyecto/' +data.listProjects[i]
+			}).done(function(data){
+				// Devuelve objeto completo de projects
+				$('#followedProjects').append(
+			"<div class='card'><div class='card-header'>"+"Id: " +JSON.stringify(data[i].identifier) +"</div><div class="+"card-body"+">" + 
+			"<h5 class="+"card-title"+">" + JSON.stringify(data[i].name) + "</h5>"+
+			"<p class="+"card-text"+">" + JSON.stringify(data[i].description) +"</p></div></div><br>");
+
+			}).fail(function(data){
+				 
+					  
+			});
+							
+		
+		}
+	});
+}
+// End Function to load HOME section
+
+/*
+
+ 
+					 
+
+
+*/
+
 
 watchForm();

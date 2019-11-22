@@ -26,6 +26,15 @@ let LoginEmployer = {
 					throw Error(err);
 				}); 
 	},
+	getProjectsHome: function(){
+		return Register.find()
+				.then(pros =>{
+					return pros; 
+				})
+				.catch( error => {
+					throw Error(error); 
+				})
+	},
 	post : function(newUser){
 		return Register.create( newUser)
 				.then(users => {

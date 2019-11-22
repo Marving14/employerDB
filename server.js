@@ -155,8 +155,7 @@ app.get('/employerDB/busqueda-proyecto/:identifier',(req, res, next) => {
 });
 //  End get project by identifier 
 
-// Get all projects 
-
+// Get all projects search section
 app.get('/employerDB/busqueda-proyectos',(req, res, next) => {
     PostProyect.getProjects().then(users => {
         return res.status(200).json(users);
@@ -168,8 +167,21 @@ app.get('/employerDB/busqueda-proyectos',(req, res, next) => {
         })
     });
 });
+// End get all projects search section
 
-// End get all projects 
+// Get one project home section
+app.get('/employerDB/busqueda-proyectosHome',(req, res, next) => {
+    LoginEmployer.getbyIdentifier().then(users => {
+        return res.status(200).json(users);
+    }).catch( error => {
+        res.statusMessage = "Something went wrong with the DB. Try again later.";
+        return res.status( 500 ).json({
+            status : 500,
+            message : "Something went wrong with the DB. Try again later."
+        })
+    });
+});
+// End get all projects home section
 
 // Update one project by identifier 
 app.put('/employerDB/update-project/:identifier', jsonParser, (req, res, next)=>{
