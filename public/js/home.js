@@ -426,7 +426,7 @@ function watchForm(){
             }).done(function(data){
                 console.log(data);
 				alert("Person deleted from DB");
-				
+				loadPersonsInSearch();
                // Set fields to blank
 			   $("#itemToDeletePerson").val(""); 
 			   
