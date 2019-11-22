@@ -58,6 +58,9 @@ form{
     padding: 5px 10px;
     width: 300px;
 }
+.redNote{
+  color: red;
+}
 
 select{
     font-size: 14px; 
