@@ -142,7 +142,7 @@ app.get('/employerDB/busqueda-proyecto/:identifier',(req, res, next) => {
         if(users.length == 0){
             console.log(req.params.identifier);
             console.log(users);
-            return res.status(404).json("project identifier not found");
+            
         }
         return res.status(200).json(users);
     }).catch( error => {
