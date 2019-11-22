@@ -3,6 +3,8 @@ function watchForm(){
 	
 	let userLogged= localStorage.getItem('user');
 	console.log('userLogged: ', JSON.parse(userLogged));
+	let userParsed = JSON.parse(userLogged);
+	
 	
   let submitButtonPerson = document.getElementById( "submitButtonPerson" );
   let submitButtonProject = document.getElementById( "submitButtonProject" );
@@ -426,10 +428,10 @@ function watchForm(){
             alert("Missing identifier !");
         }
         else{
-			console.log(userLogged.email);
+			console.log(userParsed.email);
             $.ajax({
                 type : 'PUT',
-                url: '/employerDB/update-projectFollow/'+ postD.val()+'/'+userLogged.email
+                url: '/employerDB/update-projectFollow/'+ postD.val()+'/'+userParsed.email
             }).done(function(data){
                 console.log(data);
 				alert("Project Followed from DB");
