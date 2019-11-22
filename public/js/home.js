@@ -423,7 +423,7 @@ function watchForm(){
     // End Submit btn delete Person
    
     // Submit btn Follow Project
-	let FollowProject = document.getElementById( "submitButtonFollowPerson" );
+	let FollowProject = document.getElementById("submitButtonFollowPerson" );
    
 	FollowProject.addEventListener("click", ( event ) =>{
 		event.preventDefault();
@@ -454,9 +454,6 @@ function watchForm(){
         }
    }); 
 	// End Submit btn Follow Project
-	
-	
-  
 }
 
 // Function to load Search section
