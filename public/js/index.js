@@ -83,7 +83,7 @@ function watchForm(){
           }).done(function(data){
             console.log(data);
 			// Set to localStorage
-			localStorage.setItem('user',JSON.stringify(data));
+			localStorage.setItem('user',JSON.stringify(data.post));
 			
 			 alert("Register Successfully"); 
 			parent.open("./home.html", "_self");   
