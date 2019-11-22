@@ -388,7 +388,7 @@ function watchForm(){
 		console.log("entra a DeletePerson  "); 
 	
 		let postD = $("#itemToDeletePerson");
-        console.log(postD); 
+        console.log(postD.val()); 
 		
 		if( postD.val() == ""){
             alert("Missing email!");
