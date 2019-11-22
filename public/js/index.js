@@ -128,7 +128,7 @@ function watchForm(){
         
         if(data[0].password === body.password_reg){
 			// Local Storage
-			localStorage.setItem('user',JSON.stringify(postD));
+			localStorage.setItem('user',JSON.stringify(body));
 			
 			
            parent.open("./home.html", "_self");   
