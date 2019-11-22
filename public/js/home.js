@@ -223,9 +223,8 @@ function watchForm(){
 		
 	}	
 	
-   }); // END CREATE PROJECT 
-
-
+   }); 
+   // END CREATE PROJECT 
 	// START SEARCH PERSON BY EMAIL 
    ////////////////////////////////////////////////////////////////////////
 
@@ -259,7 +258,6 @@ function watchForm(){
 	  }); 
 	  
 	});
-	
 	
 	//// UPDATE PROJECT 
 	// Search button for project by email 
@@ -433,7 +431,7 @@ function watchForm(){
 				alert("Project deleted from DB");
 				
                // Set fields to blank
-			  $("#itemToDeleteProject").val() = ""; 
+			  $("#itemToDeleteProject").val(""); 
 			   
             }).fail(function(msg){
                 alert(msg.responseText);
