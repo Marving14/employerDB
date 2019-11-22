@@ -169,6 +169,9 @@ app.get('/employerDB/busqueda-proyectos',(req, res, next) => {
 });
 // End get all projects search section
 
+
+
+
 // Get one project home section
 app.get('/employerDB/busqueda-proyectosHome/:email',(req, res, next) => {
 	if(req.params.email){
@@ -187,6 +190,20 @@ app.get('/employerDB/busqueda-proyectosHome/:email',(req, res, next) => {
 	}
 });
 // End get all projects home section
+
+// Get all projects search section
+app.get('/employerDB/busqueda-personas',(req, res, next) => {
+    CreatePerson.getPersons().then(users => {
+        return res.status(200).json(users);
+    }).catch( error => {
+        res.statusMessage = "Something went wrong with the DB. Try again later.";
+        return res.status( 500 ).json({
+            status : 500,
+            message : "Something went wrong with the DB. Try again later."
+        })
+    });
+});
+// End get all projects search section
 
 // Update one project by identifier 
 app.put('/employerDB/update-project/:identifier', jsonParser, (req, res, next)=>{

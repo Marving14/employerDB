@@ -519,6 +519,24 @@ function loadProjectsInSearch(){
 }
 // End Function to load Search section
 
+// Function to load Search section
+function loadPersonsInSearch(){
+	$('#oPersons').html("");
+	$.ajax({
+		type: 'GET',
+		url: '/employerDB/busqueda-personas'
+	}).done(function(data){
+		for(let i=0; i<data.length; i++){
+			$('#oPersons').append(
+			"<div class='card'><div class='card-header'>"+"Id: " +JSON.stringify(data[i].identifier) +"</div><div class="+"card-body"+">" + 
+			"<h5 class="+"card-title"+">" + JSON.stringify(data[i].name) + "</h5>"+
+			"<p class="+"card-text"+">" + JSON.stringify(data[i].description) +"</p>"+
+			"</div></div><br>");
+		}
+	});
+}
+// End Function to load Search section
+
 
 // Function to load HOME section
 function loadProjectsInHome(){
