@@ -491,10 +491,10 @@ function loadProjectsInHome(){
 		// por cada identifier.. 
 		for(let i=0; i<a; i++){
 			// ajax filter by identifier
-				console.log(data.listProjects[i]);
+				console.log(data[0].listProjects[i]);
 			$.ajax({
 				type: 'GET',
-				url: '/employerDB/busqueda-proyecto/' +data.listProjects[i]
+				url: '/employerDB/busqueda-proyecto/' +data[0].listProjects[i]
 			}).done(function(data){
 				// Devuelve objeto completo de projects
 				$('#followedProjects').append(
