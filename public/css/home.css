@@ -95,7 +95,7 @@ select{
 .cancelButton {
   background-color: #D9534F;
 }
-.btn{
+.btnPrimary{
 	background-color: blue;
 	color: white;
 	font-size: bold; 
