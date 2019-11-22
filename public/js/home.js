@@ -473,6 +473,8 @@ function loadProjectsInSearch(){
 // Function to load HOME section
 function loadProjectsInHome(){
 	$('#followedProjects').html("");
+	console.log(userParsed.email);
+	
 	$.ajax({
 		type: 'GET',
 		url: '/employerDB/busqueda-proyectosHome/'+ userParsed.email
