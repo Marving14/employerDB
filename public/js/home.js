@@ -433,6 +433,38 @@ function watchForm(){
         }
    }); 
     // End Submit btn delete Person
+	
+	
+// Submit btn delete Project
+   let DeletePerson = document.getElementById( "submitButtonDeleteProject" );
+   
+   DeletePerson.addEventListener("click", ( event ) =>{
+		event.preventDefault();
+		console.log("entra a DeletePerson  "); 
+	
+		let postD = $("#itemToDeleteProject");
+        console.log(postD.val()); 
+		
+		if( postD.val() == ""){
+            alert("Missing identifier!");
+        }
+        else{
+            $.ajax({
+                type : 'DELETE',
+                url: '/employerDB/delete-project/'+ postD.val()
+            }).done(function(data){
+                console.log(data);
+				alert("Person deleted from DB");
+				
+               // Set fields to blank
+			   $("#itemToDeleteProject").val(""); 
+			   
+            }).fail(function(msg){
+                alert(msg.responseText);
+            });
+        }
+   }); 
+    // End Submit btn delete Project
    
     // Submit btn Follow Project
 	let FollowProject = document.getElementById("submitButtonFollowPerson" );
