@@ -318,7 +318,6 @@ function watchForm(){
 	// End Submit Update Project Button
 	
 
-
     // Submit Update Person Button
     submitButtonPersonUpdate.addEventListener("click", ( event ) =>{
       event.preventDefault();
