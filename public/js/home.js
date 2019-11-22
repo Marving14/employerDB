@@ -549,11 +549,11 @@ function loadProjectsInHome(){
 	
 	console.log(userParsed); 
 	$('.followedProjects').html("");
-	console.log(userParsed.email_reg);
+	console.log(userParsed.email);
 	
 	$.ajax({
 		type: 'GET',
-		url: '/employerDB/busqueda-proyectosHome/'+ userParsed.email_reg
+		url: '/employerDB/busqueda-proyectosHome/'+ userParsed.email
 	}).done(function(data){
 		console.log(data); 
 		console.log(data[0]);
