@@ -482,7 +482,7 @@ function loadProjectsInHome(){
 	let userParsed = JSON.parse(userLogged);
 	
 	
-	$('#followedProjects').html("");
+	$('.followedProjects').html("");
 	console.log(userParsed.email);
 	
 	$.ajax({
@@ -503,7 +503,7 @@ function loadProjectsInHome(){
 			}).done(function(data){
 				// Devuelve objeto completo de projects
 					console.log(data); 		
-				$('#followedProjects').append("<div class='card'><div class='card-header'>"+"Id: " +JSON.stringify(data[i].identifier) +"</div><div class="+"card-body"+">" + 
+				$('.followedProjects').append("<div class='card'><div class='card-header'>"+"Id: " +JSON.stringify(data[i].identifier) +"</div><div class="+"card-body"+">" + 
 			"<h5 class="+"card-title"+">" + JSON.stringify(data[i].name) + "</h5>"+
 			"<p class="+"card-text"+">" + JSON.stringify(data[i].description) +"</p></div></div><br>");
 	
