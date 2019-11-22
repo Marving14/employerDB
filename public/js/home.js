@@ -322,6 +322,14 @@ function watchForm(){
 			console.log(data);
 		   // loadList();
 		   alert("Project data updated");
+		   $('#IdentifierProjectUpdate').val("");
+		 $('#fullNameProjectUpdate').val("");
+		 $('#sizeProjectUpdate').val("");
+		 $('#descriptionProjectUpdate').val("");	 	
+		   
+		   
+		   
+		   
 		}).fail(function(msg){
 			alert(msg.responseText);
 		});
