@@ -278,6 +278,24 @@ app.delete('/employerDB/delete-person/:email', (req, res, next)=>{
         })
     });
 });
+// End delete person 
+
+// Delete one project 
+app.delete('/employerDB/delete-project/:identifier', (req, res, next)=>{
+    PostProyect.deleteProject(req.params.identifier).then(mess => {
+        // Case when person is found and deleted
+        
+        return res.status(200).json("Success! project deleted");
+    }).catch( error => {
+        res.statusMessage = "Something went wrong with the DB. Try again later.";
+        return res.status( 500 ).json({
+            status : 500,
+            message : "Something went wrong with the DB. Try again later."
+        })
+    });
+});
+// End delete project 
+
 
 
 

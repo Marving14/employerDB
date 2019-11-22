@@ -50,10 +50,9 @@ let PostProyect = {
 				.catch( error => {
 					throw Error(error);
 				});
-	}
-	/*
-	del : function( iD ){
-		return projects.deleteOne( {identifier: iD} )
+	},
+	deleteProject : function( identifierA ){
+		return projects.deleteOne( {identifier: identifierA} )
 				.then( mess => {
 					return mess;
 				})
@@ -61,6 +60,5 @@ let PostProyect = {
 					throw Error(error);
 				});
 	}
-	*/
 };
 module.exports = { PostProyect };

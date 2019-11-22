@@ -52,7 +52,7 @@ let CreatePerson = {
 				.catch( error => {
 					throw Error(error);
 				});
-	},
+	}
 };
 
 module.exports = {CreatePerson }; 

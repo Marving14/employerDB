@@ -396,19 +396,51 @@ function watchForm(){
         else{
             $.ajax({
                 type : 'DELETE',
-                url: '/employerDB/delete-person/'+postD.val()
+                url: '/employerDB/delete-person/'+ postD.val()
             }).done(function(data){
                 console.log(data);
 				alert("PErson deleted from DB");
-               //
+				
+               // Set fields to blank
+			   postD.val()= "";
+			   
             }).fail(function(msg){
                 alert(msg.responseText);
             });
         }
-		
-		
-	
    }); 
+    // End Submit btn delete Person
+   
+    // Submit btn delete Project
+	let DeleteProject = document.getElementById( "submitButtonDeleteProject" );
+   
+	DeleteProject.addEventListener("click", ( event ) =>{
+		event.preventDefault();
+		console.log("entra a DeleteProject  "); 
+	
+		let postD = $("#itemToDeleteProject");
+        console.log(postD.val()); 
+		
+		if( postD.val() == ""){
+            alert("Missing identifier !");
+        }
+        else{
+            $.ajax({
+                type : 'DELETE',
+                url: '/employerDB/delete-project/'+ postD.val()
+            }).done(function(data){
+                console.log(data);
+				alert("Project deleted from DB");
+				
+               // Set fields to blank
+			   postD.val()= "";
+			   
+            }).fail(function(msg){
+                alert(msg.responseText);
+            });
+        }
+   }); 
+	// End Submit btn delete Project
   
 }
 
