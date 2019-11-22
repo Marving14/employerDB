@@ -355,6 +355,13 @@ function watchForm(){
             console.log(data);
            // loadList();
            alert("Datos de usuario actualizados");
+		   
+		   $('#fullNamePersonUpdate').val("");
+		 $('#agePersonUpdate').val("");
+		 $('#birthdayPersonUpdate').val("");
+		 $('#degreePersonUpdate').val("");
+		 $('#emailPersonUpdate').val("");
+		 $('#skillsPersonUpdate').val("");
         }).fail(function(msg){
             alert(msg.responseText);
         });
