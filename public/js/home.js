@@ -505,11 +505,13 @@ function loadProjectsInHome(){
 			"<p class="+"card-text"+">" + JSON.stringify(data[i].description) +"</p></div></div><br>");
 
 			$('#followedProjects').append("<p>holaaa</p>");
+			
 
 			}).fail(function(data){
 					  alert(data.responseText); 
 			});
 		}
+		loadProjectsInHome();
 	});
 }
 // End Function to load HOME section
